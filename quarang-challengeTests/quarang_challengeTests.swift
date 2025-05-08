@@ -2,11 +2,10 @@
 //  quarang_challengeTests.swift
 //  quarang-challengeTests
 //
-//  Created by Quarang on 5/7/25.
+//  Created by Quarang on 5/8/25.
 //
 
 import Testing
-@testable import quarang_challenge
 
 struct quarang_challengeTests {
 
