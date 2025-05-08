@@ -6,6 +6,7 @@
 //
 
 import Testing
+import XCTest
 @testable import quarang_challenge
 
 struct quarang_challengeTests {
