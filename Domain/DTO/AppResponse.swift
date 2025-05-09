@@ -78,4 +78,27 @@ extension AppResponse {
             releaseDate: releaseDate
         )
     }
+    
+    func toDetailModel() -> ITunesDetail {
+        return ITunesDetail(
+            id: trackID,
+            title: trackName,
+            subtitle: artistName,
+            description: description,
+            artworkURL: URL(string: artworkUrl100)!,
+            previewURL: nil,
+            genre: primaryGenreName,
+            releaseDate: releaseDate,
+            priceText: formattedPrice,
+            contentAdvisory: contentAdvisoryRating,
+            languageCodes: languageCodesISO2A,
+            screenshotURLs: screenshotUrls.compactMap { URL(string: $0) },
+            sellerName: sellerName,
+            isStreamable: nil,
+            trackTimeMillis: nil,
+            feedURL: nil,
+            detailURL: URL(string: trackViewURL)!,
+            mediaType: .app
+        )
+    }
 }

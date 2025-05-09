@@ -42,7 +42,7 @@ public struct PodcastResponse: Codable {
 }
 
 extension PodcastResponse {
-    func toSearchItem() -> ITunes {
+    func toModel() -> ITunes {
         ITunes(
             id: trackID,
             title: trackName,
@@ -52,6 +52,29 @@ extension PodcastResponse {
             genre: primaryGenreName,
             priceText: "무료",
             releaseDate: releaseDate
+        )
+    }
+    
+    func toDetailModel() -> ITunesDetail {
+        return ITunesDetail(
+            id: trackID,
+            title: trackName,
+            subtitle: artistName,
+            description: collectionCensoredName,
+            artworkURL: URL(string: artworkUrl100)!,
+            previewURL: nil,
+            genre: primaryGenreName,
+            releaseDate: releaseDate,
+            priceText: "무료",
+            contentAdvisory: trackExplicitness,
+            languageCodes: nil,
+            screenshotURLs: [],
+            sellerName: artistName,
+            isStreamable: false,
+            trackTimeMillis: trackTimeMillis,
+            feedURL: URL(string: feedURL),
+            detailURL: URL(string: trackViewURL)!,
+            mediaType: .podcast
         )
     }
 }

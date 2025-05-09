@@ -38,7 +38,7 @@ public struct MusicResponse: Codable {
 }
 
 extension MusicResponse {
-    func toSearchItem() -> ITunes {
+    func toModel() -> ITunes {
         ITunes(
             id: trackID,
             title: trackName,
@@ -48,6 +48,29 @@ extension MusicResponse {
             genre: primaryGenreName,
             priceText: "",
             releaseDate: releaseDate
+        )
+    }
+    
+    func toDetailModel() -> ITunesDetail {
+        return ITunesDetail(
+            id: trackID,
+            title: trackName,
+            subtitle: artistName,
+            description: nil,
+            artworkURL: URL(string: artworkUrl100)!,
+            previewURL: URL(string: previewURL),
+            genre: primaryGenreName,
+            releaseDate: releaseDate,
+            priceText: "무료",
+            contentAdvisory: trackExplicitness,
+            languageCodes: nil,
+            screenshotURLs: [],
+            sellerName: nil,
+            isStreamable: isStreamable,
+            trackTimeMillis: trackTimeMillis,
+            feedURL: nil,
+            detailURL: URL(string: trackViewURL)!,
+            mediaType: .music
         )
     }
 }

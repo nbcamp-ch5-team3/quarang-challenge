@@ -38,7 +38,7 @@ public struct MovieResponse: Codable {
 }
 
 extension MovieResponse {
-    func toSearchItem() -> ITunes {
+    func toModel() -> ITunes {
         ITunes(
             id: trackID,
             title: trackName,
@@ -48,6 +48,29 @@ extension MovieResponse {
             genre: primaryGenreName,
             priceText: "₩\(trackPrice)",
             releaseDate: releaseDate
+        )
+    }
+    
+    func toDetailModel() -> ITunesDetail {
+        return ITunesDetail(
+            id: trackID,
+            title: trackName,
+            subtitle: artistName,
+            description: longDescription,
+            artworkURL: URL(string: artworkUrl100)!,
+            previewURL: URL(string: previewURL),
+            genre: primaryGenreName,
+            releaseDate: releaseDate,
+            priceText: "₩\(trackPrice)",
+            contentAdvisory: contentAdvisoryRating,
+            languageCodes: nil,
+            screenshotURLs: [],
+            sellerName: nil,
+            isStreamable: nil,
+            trackTimeMillis: trackTimeMillis,
+            feedURL: nil,
+            detailURL: URL(string: trackViewURL)!,
+            mediaType: .movie
         )
     }
 }

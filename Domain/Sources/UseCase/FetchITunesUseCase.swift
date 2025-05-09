@@ -22,7 +22,7 @@ public final class FetchITunesUseCase : FetchITunesUseCaseInterface {
         case let .music(entity): return repository.fetchMusic(entity: entity)
         case let .movie(entity): return repository.fetchMovie(entity: entity)
         case let .app(entity): return repository.fetchApp(entity: entity)
-        case let .padcast(entity): return repository.fetchPodcast(entity: entity)
+        case let .podcast(entity): return repository.fetchPodcast(entity: entity)
         case let .search(media, entity): return repository.searchITunes(media: media, entity: entity)
         }
     }

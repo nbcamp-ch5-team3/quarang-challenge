@@ -6,8 +6,14 @@
 //
 
 import Foundation
+import Domain
 
 // MARK: - 검색 관련 뷰모델
-final class SearchViewModel {
+public final class SearchViewModel {
     
+    let fetchITunesUscase: FetchITunesUseCase
+    
+    public init (fetchITunesUscase: FetchITunesUseCase) {
+        self.fetchITunesUscase = fetchITunesUscase
+    }
 }

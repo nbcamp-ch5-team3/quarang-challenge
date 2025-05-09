@@ -6,18 +6,21 @@
 //
 
 import UIKit
+import Domain
 
 // MARK: - 아이튠즈 뷰 컨트롤러
 public final class ITunesViewController: UIViewController {
 
+    private let type: ViewType
     private let viewModel: ITunesViewModel
-    private let mainView = ITunesView()
+    private let iTunesView = ITunesView()
     
     public override func loadView() {
-        view = mainView
+        view = iTunesView
     }
     
-    public init(viewModel: ITunesViewModel) {
+    public init(viewModel: ITunesViewModel, type: ViewType) {
+        self.type = type
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
