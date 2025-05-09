@@ -13,13 +13,13 @@ import UIKit
 
 final class DIContainer {
     
-    func makeFetchMainViewModel() -> MainViewModel {
+    func makeFetchMainViewModel() -> ITunesViewModel {
         let repository = FetchMusicRepository()
         let useCase = FetchMusicUseCase(repository: repository)
-        return MainViewModel(fetchMusicUscase: useCase)
+        return ITunesViewModel(fetchMusicUscase: useCase)
     }
     
     var mainViewController: UIViewController {
-        MainViewController(viewModel: makeFetchMainViewModel())
+        ITunesViewController(viewModel: makeFetchMainViewModel())
     }
 }

@@ -7,11 +7,17 @@
 
 import UIKit
 
-public final class MainViewController: UIViewController {
+// MARK: - 아이튠즈 뷰 컨트롤러
+public final class ITunesViewController: UIViewController {
 
-    let viewModel: MainViewModel
+    private let viewModel: ITunesViewModel
+    private let mainView = ITunesView()
     
-    public init(viewModel: MainViewModel) {
+    public override func loadView() {
+        view = mainView
+    }
+    
+    public init(viewModel: ITunesViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

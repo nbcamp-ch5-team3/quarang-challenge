@@ -8,7 +8,8 @@
 import Foundation
 import Domain
 
-public final class MainViewModel {
+// MARK: - 아이튠즈 뷰 모델
+public final class ITunesViewModel {
     
     let fetchMusicUscase: FetchMusicUseCase
     
