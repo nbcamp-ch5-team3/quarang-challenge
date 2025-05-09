@@ -63,3 +63,19 @@ struct AppResponse: Codable {
         case sellerName, currentVersionReleaseDate, releaseNotes, version, wrapperType, currency, description, userRatingCount
     }
 }
+
+
+extension AppResponse {
+    func toModel() -> ITunes {
+        ITunes(
+            id: trackID,
+            title: trackName,
+            subtitle: artistName,
+            imageURL: URL(string: artworkUrl100)!,
+            detailURL: URL(string: trackViewURL)!,
+            genre: primaryGenreName,
+            priceText: price == 0 ? "무료" : "₩\(price)",
+            releaseDate: releaseDate
+        )
+    }
+}

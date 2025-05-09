@@ -40,3 +40,18 @@ struct PodcastResponse: Codable {
         case genres
     }
 }
+
+extension PodcastResponse {
+    func toSearchItem() -> ITunes {
+        ITunes(
+            id: trackID,
+            title: trackName,
+            subtitle: artistName,
+            imageURL: URL(string: artworkUrl100)!,
+            detailURL: URL(string: trackViewURL)!,
+            genre: primaryGenreName,
+            priceText: "무료",
+            releaseDate: releaseDate
+        )
+    }
+}

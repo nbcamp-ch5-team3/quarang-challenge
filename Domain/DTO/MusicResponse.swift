@@ -36,3 +36,18 @@ struct MusicResponse: Codable {
         case artworkUrl30, artworkUrl60, artworkUrl100, releaseDate, collectionExplicitness, trackExplicitness, discCount, discNumber, trackCount, trackNumber, trackTimeMillis, country, currency, primaryGenreName, isStreamable
     }
 }
+
+extension MusicResponse {
+    func toSearchItem() -> ITunes {
+        ITunes(
+            id: trackID,
+            title: trackName,
+            subtitle: artistName,
+            imageURL: URL(string: artworkUrl100)!,
+            detailURL: URL(string: trackViewURL)!,
+            genre: primaryGenreName,
+            priceText: "",
+            releaseDate: releaseDate
+        )
+    }
+}

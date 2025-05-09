@@ -22,7 +22,7 @@ struct MovieResponse: Codable {
     let trackTimeMillis: Int
     let country, currency, primaryGenreName, contentAdvisoryRating: String
     let shortDescription, longDescription: String
-
+    
     enum CodingKeys: String, CodingKey {
         case wrapperType, kind
         case trackID = "trackId"
@@ -34,5 +34,20 @@ struct MovieResponse: Codable {
         case trackHDPrice = "trackHdPrice"
         case trackHDRentalPrice = "trackHdRentalPrice"
         case releaseDate, collectionExplicitness, trackExplicitness, trackTimeMillis, country, currency, primaryGenreName, contentAdvisoryRating, shortDescription, longDescription
+    }
+}
+
+extension MovieResponse {
+    func toSearchItem() -> ITunes {
+        ITunes(
+            id: trackID,
+            title: trackName,
+            subtitle: artistName,
+            imageURL: URL(string: artworkUrl100)!,
+            detailURL: URL(string: trackViewURL)!,
+            genre: primaryGenreName,
+            priceText: "₩\(trackPrice)",
+            releaseDate: releaseDate
+        )
     }
 }
