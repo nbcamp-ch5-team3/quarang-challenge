@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - 영화 정보
-struct MovieResponse: Codable {
+public struct MovieResponse: Codable {
     let wrapperType, kind: String
     let trackID: Int
     let artistName, trackName, trackCensoredName: String

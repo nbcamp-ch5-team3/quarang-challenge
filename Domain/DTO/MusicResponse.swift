@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - 음악 정보
-struct MusicResponse: Codable {
+public struct MusicResponse: Codable {
     let wrapperType, kind: String
     let artistID, collectionID, trackID: Int
     let artistName, collectionName, trackName, collectionCensoredName: String

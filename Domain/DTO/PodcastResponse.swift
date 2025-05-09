@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - 팟캐스트 정보
-struct PodcastResponse: Codable {
+public struct PodcastResponse: Codable {
     let wrapperType, kind: String
     let collectionID, trackID: Int
     let artistName, collectionName, trackName, collectionCensoredName: String

@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Response
-struct Response<T: Codable>: Codable {
+public struct Response<T: Codable>: Codable {
     let resultCount: Int
     let results: [T]
 }

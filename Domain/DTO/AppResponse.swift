@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - 앱 정보
-struct AppResponse: Codable {
+public struct AppResponse: Codable {
     let artistViewURL: String
     let artworkUrl60, artworkUrl100: String
     let screenshotUrls, ipadScreenshotUrls: [String]
