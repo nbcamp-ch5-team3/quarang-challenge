@@ -150,6 +150,13 @@
 			);
 			target = 81A4AB082DCCAAEB00704C08 /* Presentation */;
 		};
+		81E11EED2DCDD8990029354F /* Exceptions for "Domain" folder in "Data" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DTO/AppResponse.swift,
+			);
+			target = 81A4AAE22DCCAAD200704C08 /* Data */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -175,6 +182,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				81E11EE12DCDD1040029354F /* Exceptions for "Domain" folder in "Domain" target */,
+				81E11EED2DCDD8990029354F /* Exceptions for "Domain" folder in "Data" target */,
 				81E11EE22DCDD1040029354F /* Exceptions for "Domain" folder in "Presentation" target */,
 			);
 			path = Domain;
