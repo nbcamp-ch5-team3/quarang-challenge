@@ -1,0 +1,1210 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		819655AE2DCD880800156038 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 819655AD2DCD880800156038 /* RxCocoa */; };
+		819655B02DCD880800156038 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 819655AF2DCD880800156038 /* RxRelay */; };
+		819655B22DCD880800156038 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 819655B12DCD880800156038 /* RxSwift */; };
+		819655B52DCD881700156038 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 819655B42DCD881700156038 /* SnapKit */; };
+		819655B72DCD882900156038 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 819655B62DCD882900156038 /* RxSwift */; };
+		819655B92DCD883000156038 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 819655B82DCD883000156038 /* RxSwift */; };
+		81A4AAF82DCCAAD200704C08 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAE32DCCAAD200704C08 /* Data.framework */; };
+		81A4AAF92DCCAAD200704C08 /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAE32DCCAAD200704C08 /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		81A4AB1E2DCCAAEB00704C08 /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AB092DCCAAEB00704C08 /* Presentation.framework */; };
+		81A4AB1F2DCCAAEB00704C08 /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AB092DCCAAEB00704C08 /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		81A4AB2F2DCCAB4500704C08 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAB62DCCAA9300704C08 /* Domain.framework */; };
+		81A4AB302DCCAB4500704C08 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAB62DCCAA9300704C08 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		81A4AB342DCCAB4A00704C08 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAB62DCCAA9300704C08 /* Domain.framework */; };
+		81A4AB352DCCAB4A00704C08 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAB62DCCAA9300704C08 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		81A4AA982DCCA9A600704C08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81A4AA4E2DCCA8D700704C08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81A4AA552DCCA8D700704C08;
+			remoteInfo = "quarang-challenge";
+		};
+		81A4AAA72DCCA9C600704C08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81A4AA4E2DCCA8D700704C08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81A4AA552DCCA8D700704C08;
+			remoteInfo = "quarang-challenge";
+		};
+		81A4AAF62DCCAAD200704C08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81A4AA4E2DCCA8D700704C08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81A4AAE22DCCAAD200704C08;
+			remoteInfo = Data;
+		};
+		81A4AB1C2DCCAAEB00704C08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81A4AA4E2DCCA8D700704C08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81A4AB082DCCAAEB00704C08;
+			remoteInfo = Presentation;
+		};
+		81A4AB312DCCAB4500704C08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81A4AA4E2DCCA8D700704C08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81A4AAB52DCCAA9300704C08;
+			remoteInfo = Domain;
+		};
+		81A4AB362DCCAB4A00704C08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81A4AA4E2DCCA8D700704C08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81A4AAB52DCCAA9300704C08;
+			remoteInfo = Domain;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		81A4AAD02DCCAA9400704C08 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				81A4AAF92DCCAAD200704C08 /* Data.framework in Embed Frameworks */,
+				81A4AB1F2DCCAAEB00704C08 /* Presentation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AB332DCCAB4500704C08 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				81A4AB302DCCAB4500704C08 /* Domain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AB382DCCAB4A00704C08 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				81A4AB352DCCAB4A00704C08 /* Domain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		81A4AA562DCCA8D700704C08 /* quarang-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "quarang-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81A4AA942DCCA9A600704C08 /* quarang-challengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "quarang-challengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81A4AAA12DCCA9C600704C08 /* quarang-challengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "quarang-challengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81A4AAB62DCCAA9300704C08 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81A4AAE32DCCAAD200704C08 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81A4AB092DCCAAEB00704C08 /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		81A4AA682DCCA8D800704C08 /* Exceptions for "quarang-challenge" folder in "quarang-challenge" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Info.plist,
+			);
+			target = 81A4AA552DCCA8D700704C08 /* quarang-challenge */;
+		};
+		81A4AB3A2DCCAB8600704C08 /* Exceptions for "Presentation" folder in "quarang-challenge" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"/Localized: Resources/LaunchScreen.storyboard",
+				Resources/Assets.xcassets,
+			);
+			target = 81A4AA552DCCA8D700704C08 /* quarang-challenge */;
+		};
+		81A4AB3B2DCCAB8600704C08 /* Exceptions for "Presentation" folder in "Presentation" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"/Localized: Resources/LaunchScreen.storyboard",
+				Resources/Assets.xcassets,
+			);
+			target = 81A4AB082DCCAAEB00704C08 /* Presentation */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		81A4AA582DCCA8D700704C08 /* quarang-challenge */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				81A4AA682DCCA8D800704C08 /* Exceptions for "quarang-challenge" folder in "quarang-challenge" target */,
+			);
+			path = "quarang-challenge";
+			sourceTree = "<group>";
+		};
+		81A4AA952DCCA9A600704C08 /* quarang-challengeTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "quarang-challengeTests";
+			sourceTree = "<group>";
+		};
+		81A4AAA22DCCA9C600704C08 /* quarang-challengeUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "quarang-challengeUITests";
+			sourceTree = "<group>";
+		};
+		81A4AAB72DCCAA9300704C08 /* Domain */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		81A4AAE42DCCAAD200704C08 /* Data */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Data;
+			sourceTree = "<group>";
+		};
+		81A4AB0A2DCCAAEB00704C08 /* Presentation */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				81A4AB3A2DCCAB8600704C08 /* Exceptions for "Presentation" folder in "quarang-challenge" target */,
+				81A4AB3B2DCCAB8600704C08 /* Exceptions for "Presentation" folder in "Presentation" target */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		81A4AA532DCCA8D700704C08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81A4AAF82DCCAAD200704C08 /* Data.framework in Frameworks */,
+				81A4AB1E2DCCAAEB00704C08 /* Presentation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AA912DCCA9A600704C08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AA9E2DCCA9C600704C08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AAB32DCCAA9300704C08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				819655B72DCD882900156038 /* RxSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AAE02DCCAAD200704C08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				819655B92DCD883000156038 /* RxSwift in Frameworks */,
+				81A4AB2F2DCCAB4500704C08 /* Domain.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AB062DCCAAEB00704C08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				819655B02DCD880800156038 /* RxRelay in Frameworks */,
+				819655AE2DCD880800156038 /* RxCocoa in Frameworks */,
+				819655B22DCD880800156038 /* RxSwift in Frameworks */,
+				81A4AB342DCCAB4A00704C08 /* Domain.framework in Frameworks */,
+				819655B52DCD881700156038 /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		81A4AA4D2DCCA8D700704C08 = {
+			isa = PBXGroup;
+			children = (
+				81A4AA582DCCA8D700704C08 /* quarang-challenge */,
+				81A4AA952DCCA9A600704C08 /* quarang-challengeTests */,
+				81A4AAA22DCCA9C600704C08 /* quarang-challengeUITests */,
+				81A4AAB72DCCAA9300704C08 /* Domain */,
+				81A4AAE42DCCAAD200704C08 /* Data */,
+				81A4AB0A2DCCAAEB00704C08 /* Presentation */,
+				81A4AB2E2DCCAB4500704C08 /* Frameworks */,
+				81A4AA572DCCA8D700704C08 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		81A4AA572DCCA8D700704C08 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81A4AA562DCCA8D700704C08 /* quarang-challenge.app */,
+				81A4AA942DCCA9A600704C08 /* quarang-challengeTests.xctest */,
+				81A4AAA12DCCA9C600704C08 /* quarang-challengeUITests.xctest */,
+				81A4AAB62DCCAA9300704C08 /* Domain.framework */,
+				81A4AAE32DCCAAD200704C08 /* Data.framework */,
+				81A4AB092DCCAAEB00704C08 /* Presentation.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81A4AB2E2DCCAB4500704C08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		81A4AAB12DCCAA9300704C08 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AADE2DCCAAD200704C08 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AB042DCCAAEB00704C08 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		81A4AA552DCCA8D700704C08 /* quarang-challenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81A4AA692DCCA8D800704C08 /* Build configuration list for PBXNativeTarget "quarang-challenge" */;
+			buildPhases = (
+				81A4AA522DCCA8D700704C08 /* Sources */,
+				81A4AA532DCCA8D700704C08 /* Frameworks */,
+				81A4AA542DCCA8D700704C08 /* Resources */,
+				81A4AAD02DCCAA9400704C08 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81A4AAF72DCCAAD200704C08 /* PBXTargetDependency */,
+				81A4AB1D2DCCAAEB00704C08 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				81A4AA582DCCA8D700704C08 /* quarang-challenge */,
+			);
+			name = "quarang-challenge";
+			packageProductDependencies = (
+			);
+			productName = "quarang-challenge";
+			productReference = 81A4AA562DCCA8D700704C08 /* quarang-challenge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		81A4AA932DCCA9A600704C08 /* quarang-challengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81A4AA9A2DCCA9A600704C08 /* Build configuration list for PBXNativeTarget "quarang-challengeTests" */;
+			buildPhases = (
+				81A4AA902DCCA9A600704C08 /* Sources */,
+				81A4AA912DCCA9A600704C08 /* Frameworks */,
+				81A4AA922DCCA9A600704C08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81A4AA992DCCA9A600704C08 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				81A4AA952DCCA9A600704C08 /* quarang-challengeTests */,
+			);
+			name = "quarang-challengeTests";
+			packageProductDependencies = (
+			);
+			productName = "quarang-challengeTests";
+			productReference = 81A4AA942DCCA9A600704C08 /* quarang-challengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		81A4AAA02DCCA9C600704C08 /* quarang-challengeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81A4AAA92DCCA9C600704C08 /* Build configuration list for PBXNativeTarget "quarang-challengeUITests" */;
+			buildPhases = (
+				81A4AA9D2DCCA9C600704C08 /* Sources */,
+				81A4AA9E2DCCA9C600704C08 /* Frameworks */,
+				81A4AA9F2DCCA9C600704C08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81A4AAA82DCCA9C600704C08 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				81A4AAA22DCCA9C600704C08 /* quarang-challengeUITests */,
+			);
+			name = "quarang-challengeUITests";
+			packageProductDependencies = (
+			);
+			productName = "quarang-challengeUITests";
+			productReference = 81A4AAA12DCCA9C600704C08 /* quarang-challengeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		81A4AAB52DCCAA9300704C08 /* Domain */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81A4AACD2DCCAA9400704C08 /* Build configuration list for PBXNativeTarget "Domain" */;
+			buildPhases = (
+				81A4AAB12DCCAA9300704C08 /* Headers */,
+				81A4AAB22DCCAA9300704C08 /* Sources */,
+				81A4AAB32DCCAA9300704C08 /* Frameworks */,
+				81A4AAB42DCCAA9300704C08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				81A4AAB72DCCAA9300704C08 /* Domain */,
+			);
+			name = Domain;
+			packageProductDependencies = (
+				819655B62DCD882900156038 /* RxSwift */,
+			);
+			productName = Domain;
+			productReference = 81A4AAB62DCCAA9300704C08 /* Domain.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		81A4AAE22DCCAAD200704C08 /* Data */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81A4AAFA2DCCAAD200704C08 /* Build configuration list for PBXNativeTarget "Data" */;
+			buildPhases = (
+				81A4AADE2DCCAAD200704C08 /* Headers */,
+				81A4AADF2DCCAAD200704C08 /* Sources */,
+				81A4AAE02DCCAAD200704C08 /* Frameworks */,
+				81A4AAE12DCCAAD200704C08 /* Resources */,
+				81A4AB332DCCAB4500704C08 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81A4AB322DCCAB4500704C08 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				81A4AAE42DCCAAD200704C08 /* Data */,
+			);
+			name = Data;
+			packageProductDependencies = (
+				819655B82DCD883000156038 /* RxSwift */,
+			);
+			productName = Data;
+			productReference = 81A4AAE32DCCAAD200704C08 /* Data.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		81A4AB082DCCAAEB00704C08 /* Presentation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81A4AB202DCCAAEB00704C08 /* Build configuration list for PBXNativeTarget "Presentation" */;
+			buildPhases = (
+				81A4AB042DCCAAEB00704C08 /* Headers */,
+				81A4AB052DCCAAEB00704C08 /* Sources */,
+				81A4AB062DCCAAEB00704C08 /* Frameworks */,
+				81A4AB072DCCAAEB00704C08 /* Resources */,
+				81A4AB382DCCAB4A00704C08 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81A4AB372DCCAB4A00704C08 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				81A4AB0A2DCCAAEB00704C08 /* Presentation */,
+			);
+			name = Presentation;
+			packageProductDependencies = (
+				819655AD2DCD880800156038 /* RxCocoa */,
+				819655AF2DCD880800156038 /* RxRelay */,
+				819655B12DCD880800156038 /* RxSwift */,
+				819655B42DCD881700156038 /* SnapKit */,
+			);
+			productName = Presentation;
+			productReference = 81A4AB092DCCAAEB00704C08 /* Presentation.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		81A4AA4E2DCCA8D700704C08 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					81A4AA552DCCA8D700704C08 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					81A4AA932DCCA9A600704C08 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 81A4AA552DCCA8D700704C08;
+					};
+					81A4AAA02DCCA9C600704C08 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 81A4AA552DCCA8D700704C08;
+					};
+					81A4AAB52DCCAA9300704C08 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					81A4AAE22DCCAAD200704C08 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					81A4AB082DCCAAEB00704C08 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+				};
+			};
+			buildConfigurationList = 81A4AA512DCCA8D700704C08 /* Build configuration list for PBXProject "quarang-challenge" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 81A4AA4D2DCCA8D700704C08;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				819655AC2DCD880800156038 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				819655B32DCD881700156038 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 81A4AA572DCCA8D700704C08 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81A4AA552DCCA8D700704C08 /* quarang-challenge */,
+				81A4AA932DCCA9A600704C08 /* quarang-challengeTests */,
+				81A4AAA02DCCA9C600704C08 /* quarang-challengeUITests */,
+				81A4AAB52DCCAA9300704C08 /* Domain */,
+				81A4AAE22DCCAAD200704C08 /* Data */,
+				81A4AB082DCCAAEB00704C08 /* Presentation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		81A4AA542DCCA8D700704C08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AA922DCCA9A600704C08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AA9F2DCCA9C600704C08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AAB42DCCAA9300704C08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AAE12DCCAAD200704C08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AB072DCCAAEB00704C08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		81A4AA522DCCA8D700704C08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AA902DCCA9A600704C08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AA9D2DCCA9C600704C08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AAB22DCCAA9300704C08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AADF2DCCAAD200704C08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81A4AB052DCCAAEB00704C08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		81A4AA992DCCA9A600704C08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81A4AA552DCCA8D700704C08 /* quarang-challenge */;
+			targetProxy = 81A4AA982DCCA9A600704C08 /* PBXContainerItemProxy */;
+		};
+		81A4AAA82DCCA9C600704C08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81A4AA552DCCA8D700704C08 /* quarang-challenge */;
+			targetProxy = 81A4AAA72DCCA9C600704C08 /* PBXContainerItemProxy */;
+		};
+		81A4AAF72DCCAAD200704C08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81A4AAE22DCCAAD200704C08 /* Data */;
+			targetProxy = 81A4AAF62DCCAAD200704C08 /* PBXContainerItemProxy */;
+		};
+		81A4AB1D2DCCAAEB00704C08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81A4AB082DCCAAEB00704C08 /* Presentation */;
+			targetProxy = 81A4AB1C2DCCAAEB00704C08 /* PBXContainerItemProxy */;
+		};
+		81A4AB322DCCAB4500704C08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81A4AAB52DCCAA9300704C08 /* Domain */;
+			targetProxy = 81A4AB312DCCAB4500704C08 /* PBXContainerItemProxy */;
+		};
+		81A4AB372DCCAB4A00704C08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81A4AAB52DCCAA9300704C08 /* Domain */;
+			targetProxy = 81A4AB362DCCAB4A00704C08 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		81A4AA6A2DCCA8D800704C08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "quarang-challenge/Resources/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.quarang-challenge";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		81A4AA6B2DCCA8D800704C08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "quarang-challenge/Resources/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.quarang-challenge";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		81A4AA6C2DCCA8D800704C08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		81A4AA6D2DCCA8D800704C08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		81A4AA9B2DCCA9A600704C08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.quarang-challengeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/quarang-challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/quarang-challenge";
+			};
+			name = Debug;
+		};
+		81A4AA9C2DCCA9A600704C08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.quarang-challengeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/quarang-challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/quarang-challenge";
+			};
+			name = Release;
+		};
+		81A4AAAA2DCCA9C600704C08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.quarang-challengeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "quarang-challenge";
+			};
+			name = Debug;
+		};
+		81A4AAAB2DCCA9C600704C08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.quarang-challengeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "quarang-challenge";
+			};
+			name = Release;
+		};
+		81A4AACE2DCCAA9400704C08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.Domain";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		81A4AACF2DCCAA9400704C08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.Domain";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		81A4AAFB2DCCAAD200704C08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.Data";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		81A4AAFC2DCCAAD200704C08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.Data";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		81A4AB212DCCAAEB00704C08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.Presentation";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		81A4AB222DCCAAEB00704C08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.Presentation";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		81A4AA512DCCA8D700704C08 /* Build configuration list for PBXProject "quarang-challenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81A4AA6C2DCCA8D800704C08 /* Debug */,
+				81A4AA6D2DCCA8D800704C08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81A4AA692DCCA8D800704C08 /* Build configuration list for PBXNativeTarget "quarang-challenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81A4AA6A2DCCA8D800704C08 /* Debug */,
+				81A4AA6B2DCCA8D800704C08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81A4AA9A2DCCA9A600704C08 /* Build configuration list for PBXNativeTarget "quarang-challengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81A4AA9B2DCCA9A600704C08 /* Debug */,
+				81A4AA9C2DCCA9A600704C08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81A4AAA92DCCA9C600704C08 /* Build configuration list for PBXNativeTarget "quarang-challengeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81A4AAAA2DCCA9C600704C08 /* Debug */,
+				81A4AAAB2DCCA9C600704C08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81A4AACD2DCCAA9400704C08 /* Build configuration list for PBXNativeTarget "Domain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81A4AACE2DCCAA9400704C08 /* Debug */,
+				81A4AACF2DCCAA9400704C08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81A4AAFA2DCCAAD200704C08 /* Build configuration list for PBXNativeTarget "Data" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81A4AAFB2DCCAAD200704C08 /* Debug */,
+				81A4AAFC2DCCAAD200704C08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81A4AB202DCCAAEB00704C08 /* Build configuration list for PBXNativeTarget "Presentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81A4AB212DCCAAEB00704C08 /* Debug */,
+				81A4AB222DCCAAEB00704C08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		819655AC2DCD880800156038 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.9.0;
+			};
+		};
+		819655B32DCD881700156038 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		819655AD2DCD880800156038 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 819655AC2DCD880800156038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		819655AF2DCD880800156038 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 819655AC2DCD880800156038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		819655B12DCD880800156038 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 819655AC2DCD880800156038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		819655B42DCD881700156038 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 819655B32DCD881700156038 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		819655B62DCD882900156038 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 819655AC2DCD880800156038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		819655B82DCD883000156038 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 819655AC2DCD880800156038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 81A4AA4E2DCCA8D700704C08 /* Project object */;
+}
