@@ -7,11 +7,11 @@
 
 import Foundation
 
-public final class FetchMusicUseCase : FetchMusicUseCaseInterface {
+public final class FetchITunesUseCase : FetchITunesUseCaseInterface {
     
-    let repository: FetchMusicRepositoryInterface
+    let repository: FetchITunesRepositoryInterface
     
-    public init (repository: FetchMusicRepositoryInterface) {
+    public init (repository: FetchITunesRepositoryInterface) {
         self.repository = repository
     }
     

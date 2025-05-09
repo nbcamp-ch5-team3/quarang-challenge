@@ -8,6 +8,6 @@
 import Foundation
 import Domain
 
-public final class FetchMusicRepository: FetchMusicRepositoryInterface {
+public final class FetchITunesRepository: FetchITunesRepositoryInterface {
     public init() { }
 }

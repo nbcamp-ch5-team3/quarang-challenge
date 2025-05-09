@@ -13,13 +13,21 @@ import UIKit
 
 final class DIContainer {
     
-    func makeFetchMainViewModel() -> ITunesViewModel {
-        let repository = FetchMusicRepository()
-        let useCase = FetchMusicUseCase(repository: repository)
-        return ITunesViewModel(fetchMusicUscase: useCase)
+    func makeITunesViewController(_ type: ViewType) -> UIViewController {
+        let repository = FetchITunesRepository()
+        let useCase = FetchITunesUseCase(repository: repository)
+        let viewModel = ITunesViewModel(fetchITunesUscase: useCase)
+        return ITunesViewController(viewModel: viewModel)
     }
     
-    var mainViewController: UIViewController {
-        ITunesViewController(viewModel: makeFetchMainViewModel())
+    var makeTabBarController: UITabBarController {
+        let tabbar = TabBarController()
+        
+        let musicVC = makeITunesViewController(.music)
+        musicVC.tabBarItem = UITabBarItem(title: "Music", image: UIImage(systemName: "music.note"), tag: 1)
+        musicVC.navigationController?.navigationBar.topItem?.title = "Music"
+        
+        tabbar.viewControllers = [musicVC]
+        return tabbar
     }
 }

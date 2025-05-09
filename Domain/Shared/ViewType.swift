@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - 뷰 타입
-enum ViewType : String {
+public enum ViewType : String {
     case music = "음악"
     case movie = "영화"
     case app = "앱"
