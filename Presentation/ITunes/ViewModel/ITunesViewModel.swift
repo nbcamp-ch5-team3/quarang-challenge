@@ -14,34 +14,33 @@ public final class ITunesViewModel {
     
     private(set) var type: ViewType
     var disposeBag = DisposeBag()
-    let e = "song"
+    
     private let fetchITunesUscase: FetchITunesUseCase
     
     public init(fetchITunesUscase: FetchITunesUseCase, type: ViewType) {
         self.type = type
         self.fetchITunesUscase = fetchITunesUscase
-        updateEntity(to: e)
+        updateEntity()
     }
     
-    private func updateEntity(to newEntity: String) {
+    private func updateEntity() {
         switch type {
         case .music:
-            type = .music(entity: newEntity)
+            type = .music(entity: "song")
         case .movie:
-            type = .movie(entity: newEntity)
+            type = .movie(entity: "movie")
         case .app:
-            type = .app(entity: newEntity)
+            type = .app(entity: "software")
         case .podcast:
-            type = .podcast(entity: newEntity)
-        case let .search(media, _):
-            type = .search(media: media, entity: newEntity)
+            type = .podcast(entity: "podcast")
+        case .search:
+            type = .search(media: .music, entity: "song")
         }
     }
     
-    func a() {
+    func test() {
         fetchITunesUscase.excute(term: "봄", type)
             .subscribe(onSuccess: { items in
-                // 정상 처리
                 print("아이템 개수: \(items.count)")
             }, onFailure: { error in
                 if let networkError = error as? NetWorkError {

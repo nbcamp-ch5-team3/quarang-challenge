@@ -15,13 +15,16 @@ public struct MovieResponse: Codable {
     let trackViewURL: String
     let previewURL: String
     let artworkUrl30, artworkUrl60, artworkUrl100: String
-    let collectionPrice, trackPrice, trackRentalPrice, collectionHDPrice: Int
-    let trackHDPrice, trackHDRentalPrice: Int
-    let releaseDate: Date
+    let collectionPrice, trackPrice: Int
+    let trackRentalPrice: Int?
+    let collectionHDPrice, trackHDPrice: Int
+    let trackHDRentalPrice: Int?
+    let releaseDate: String
     let collectionExplicitness, trackExplicitness: String
     let trackTimeMillis: Int
     let country, currency, primaryGenreName, contentAdvisoryRating: String
-    let shortDescription, longDescription: String
+    let shortDescription: String?
+    let longDescription: String
     
     enum CodingKeys: String, CodingKey {
         case wrapperType, kind
@@ -48,7 +51,7 @@ extension MovieResponse {
             detailURL: URL(string: trackViewURL)!,
             genre: primaryGenreName,
             priceText: "₩\(trackPrice)",
-            releaseDate: releaseDate
+            releaseDate: releaseDate.toDateFromISO8601()
         )
     }
     
@@ -61,7 +64,7 @@ extension MovieResponse {
             artworkURL: URL(string: artworkUrl100)!,
             previewURL: URL(string: previewURL),
             genre: primaryGenreName,
-            releaseDate: releaseDate,
+            releaseDate: releaseDate.toDateFromISO8601(),
             priceText: "₩\(trackPrice)",
             contentAdvisory: contentAdvisoryRating,
             languageCodes: nil,

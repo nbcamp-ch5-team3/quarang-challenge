@@ -32,7 +32,7 @@ public final class ITunesViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        viewModel.a()
+        viewModel.test()
         // Do any additional setup after loading the view.
     }
 

@@ -60,7 +60,13 @@ final class ITunesAPIManager {
     
     /// 각 타입 별 디코딩 작업
     private func decodeITunesResponse<T: Decodable>(_ type: Response<T>.Type, from data: Data, transform: (T) -> ITunes) throws -> [ITunes] {
-        let decoded = try JSONDecoder().decode(type, from: data)
-        return decoded.results.map(transform)
+        do{
+            let decoded = try JSONDecoder().decode(type, from: data)
+            return decoded.results.map(transform)
+        }
+        catch {
+            print("Error decoding: \(error)")
+            throw NetWorkError.decodingError
+        }
     }
 }
