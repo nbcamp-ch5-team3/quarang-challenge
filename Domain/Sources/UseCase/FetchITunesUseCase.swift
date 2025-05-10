@@ -17,7 +17,7 @@ public final class FetchITunesUseCase : FetchITunesUseCaseInterface {
         self.repository = repository
     }
     
-    public func excute(_ type: ViewType) -> Single<[ITunes]> {
+    func excute(_ type: ViewType) -> Single<[ITunes]> {
         switch type {
         case let .music(entity): return repository.fetchMusic(entity: entity)
         case let .movie(entity): return repository.fetchMovie(entity: entity)

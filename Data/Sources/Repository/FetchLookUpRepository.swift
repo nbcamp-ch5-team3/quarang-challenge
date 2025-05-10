@@ -8,7 +8,7 @@
 import RxSwift
 import Domain
 
-// MARK: - 상세데이터 요청 레포지토리 구현체
+// MARK: - 상세데이터 요청 레포지토리
 public final class FetchLookUpRepository: FetchLookUpRepositoryInterface {
     
     public init() { }
