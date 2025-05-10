@@ -64,7 +64,7 @@ public struct AppResponse: Codable {
     }
 }
 
-
+// MARK: - 뷰에서 사용할 Model로 변환
 extension AppResponse {
     func toModel() -> ITunes {
         ITunes(

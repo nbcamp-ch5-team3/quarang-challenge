@@ -11,10 +11,9 @@ import Domain
 // MARK: - 아이튠즈 뷰 모델
 public final class ITunesViewModel {
     
-    let fetchITunesUscase: FetchITunesUseCase
+    private let fetchITunesUscase: FetchITunesUseCase
     
     public init (fetchITunesUscase: FetchITunesUseCase) {
         self.fetchITunesUscase = fetchITunesUscase
     }
-    
 }

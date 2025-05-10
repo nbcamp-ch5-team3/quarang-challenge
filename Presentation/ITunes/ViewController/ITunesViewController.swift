@@ -13,15 +13,17 @@ public final class ITunesViewController: UIViewController {
 
     private let type: ViewType
     private let viewModel: ITunesViewModel
+    private let DIContainer: DetailDIContainerInterface
     private let iTunesView = ITunesView()
     
     public override func loadView() {
         view = iTunesView
     }
     
-    public init(viewModel: ITunesViewModel, type: ViewType) {
+    public init(viewModel: ITunesViewModel, type: ViewType, DIContainer: DetailDIContainerInterface) {
         self.type = type
         self.viewModel = viewModel
+        self.DIContainer = DIContainer
         super.init(nibName: nil, bundle: nil)
     }
     
