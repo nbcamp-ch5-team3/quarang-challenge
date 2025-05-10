@@ -10,6 +10,7 @@ import Foundation
 // MARK: API 요청 URL Request 생성
 enum APIRequest {
     case iTunes(term: String, media: String, entity: String)
+    case iTunesDetail(id: Int)
     
     var baseURL: URL {
         URL(string: "https://itunes.apple.com")!
@@ -18,6 +19,7 @@ enum APIRequest {
     var path: String {
         switch self {
         case .iTunes: "/search"
+        case .iTunesDetail: "/lookup"
         }
     }
     
@@ -30,6 +32,11 @@ enum APIRequest {
                 URLQueryItem(name: "media", value: media),
                 URLQueryItem(name: "entity", value: entity),
                 URLQueryItem(name: "limit", value: "20")
+            ]
+        case let .iTunesDetail(id):
+            return [
+                URLQueryItem(name: "id", value: "\(id)"),
+                URLQueryItem(name: "country", value: "KR")
             ]
         }
     }
