@@ -18,8 +18,8 @@ final class DIContainer {
     func makeITunesViewController(_ type: ViewType) -> UIViewController {
         let repository = FetchITunesRepository()
         let useCase = FetchITunesUseCase(repository: repository)
-        let viewModel = ITunesViewModel(fetchITunesUscase: useCase)
-        let vc = ITunesViewController(viewModel: viewModel, type: type, DIContainer: self)
+        let viewModel = ITunesViewModel(fetchITunesUscase: useCase, type: type)
+        let vc = ITunesViewController(viewModel: viewModel, DIContainer: self)
         vc.tabBarItem = UITabBarItem(title: type.text, image: UIImage(systemName: type.image), tag: type.tag)
         vc.navigationController?.navigationBar.topItem?.title = type.text
         return vc
@@ -27,7 +27,7 @@ final class DIContainer {
     
     /// 검색 VC 생성
     func makeSearchViewController() -> UIViewController {
-        let type = ViewType.search(media: "", entity: "")
+        let type = ViewType.search(media: .app, entity: "")
         let repository = FetchITunesRepository()
         let useCase = FetchITunesUseCase(repository: repository)
         let viewModel = SearchViewModel(fetchITunesUscase: useCase)

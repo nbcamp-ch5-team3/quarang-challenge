@@ -13,7 +13,7 @@ public enum ViewType {
     case movie(entity: String)
     case app(entity: String)
     case podcast(entity: String)
-    case search(media: String, entity: String)
+    case search(media: MediaType, entity: String)
 
     public var text: String {
         switch self {
@@ -42,6 +42,16 @@ public enum ViewType {
         case .app: 3
         case .podcast: 4
         case .search: 5
+        }
+    }
+    
+    public var type: MediaType {
+        switch self {
+        case .music: .music
+        case .movie: .movie
+        case .app: .app
+        case .podcast: .podcast
+        case let .search(media, _): media
         }
     }
 }

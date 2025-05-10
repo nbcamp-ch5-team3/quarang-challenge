@@ -20,7 +20,7 @@ final class ITunesAPIManager {
         
         let session = URLSession(configuration: .default)
         let requset = APIRequest.iTunes(term: term, media: media.rawValue, entity: entity).urlRequest
-        
+        print(requset)
         return Single.create { single in
             
             session.dataTask(with: requset) { data, response, error in
