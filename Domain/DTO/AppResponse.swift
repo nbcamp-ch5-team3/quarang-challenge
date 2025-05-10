@@ -66,7 +66,7 @@ public struct AppResponse: Codable {
 
 // MARK: - 뷰에서 사용할 Model로 변환
 extension AppResponse {
-    func toModel() -> ITunes {
+    public func toModel() -> ITunes {
         ITunes(
             id: trackID,
             title: trackName,
@@ -79,7 +79,7 @@ extension AppResponse {
         )
     }
     
-    func toDetailModel() -> ITunesDetail {
+    public func toDetailModel() -> ITunesDetail {
         return ITunesDetail(
             id: trackID,
             title: trackName,
