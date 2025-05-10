@@ -10,5 +10,5 @@ import RxSwift
 
 // MARK: - 상세 데이터 요청 레포지토리
 public protocol FetchLookUpRepositoryInterface {
-    func fetchLookUP(id: String,_ type: MediaType) -> Single<[ITunes]>
+    func fetchLookUP(id: Int,_ type: MediaType) -> Single<[ITunesDetail]>
 }

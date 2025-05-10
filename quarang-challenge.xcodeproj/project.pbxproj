@@ -65,6 +65,13 @@
 			remoteGlobalIDString = 81A4AAB52DCCAA9300704C08;
 			remoteInfo = Domain;
 		};
+		81E1203E2DCF39F40029354F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81A4AA4E2DCCA8D700704C08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81A4AA552DCCA8D700704C08;
+			remoteInfo = "quarang-challenge";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,6 +128,7 @@
 		81A4AAB62DCCAA9300704C08 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A4AAE32DCCAAD200704C08 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A4AB092DCCAAEB00704C08 /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81E1203A2DCF39F40029354F /* Presentation_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Presentation_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -158,16 +166,6 @@
 			path = "quarang-challenge";
 			sourceTree = "<group>";
 		};
-		81A4AA952DCCA9A600704C08 /* quarang-challengeTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "quarang-challengeTests";
-			sourceTree = "<group>";
-		};
-		81A4AAA22DCCA9C600704C08 /* quarang-challengeUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "quarang-challengeUITests";
-			sourceTree = "<group>";
-		};
 		81A4AAB72DCCAA9300704C08 /* Domain */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Domain;
@@ -185,6 +183,11 @@
 				81A4AB3B2DCCAB8600704C08 /* Exceptions for "Presentation" folder in "Presentation" target */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		81E1203B2DCF39F40029354F /* Presentation_Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Presentation_Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -241,6 +244,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		81E120372DCF39F40029354F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -248,11 +258,10 @@
 			isa = PBXGroup;
 			children = (
 				81A4AA582DCCA8D700704C08 /* quarang-challenge */,
-				81A4AA952DCCA9A600704C08 /* quarang-challengeTests */,
-				81A4AAA22DCCA9C600704C08 /* quarang-challengeUITests */,
 				81A4AAB72DCCAA9300704C08 /* Domain */,
 				81A4AAE42DCCAAD200704C08 /* Data */,
 				81A4AB0A2DCCAAEB00704C08 /* Presentation */,
+				81E1203B2DCF39F40029354F /* Presentation_Tests */,
 				81A4AB2E2DCCAB4500704C08 /* Frameworks */,
 				81A4AA572DCCA8D700704C08 /* Products */,
 			);
@@ -267,6 +276,7 @@
 				81A4AAB62DCCAA9300704C08 /* Domain.framework */,
 				81A4AAE32DCCAAD200704C08 /* Data.framework */,
 				81A4AB092DCCAAEB00704C08 /* Presentation.framework */,
+				81E1203A2DCF39F40029354F /* Presentation_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -343,9 +353,6 @@
 			dependencies = (
 				81A4AA992DCCA9A600704C08 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				81A4AA952DCCA9A600704C08 /* quarang-challengeTests */,
-			);
 			name = "quarang-challengeTests";
 			packageProductDependencies = (
 			);
@@ -365,9 +372,6 @@
 			);
 			dependencies = (
 				81A4AAA82DCCA9C600704C08 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				81A4AAA22DCCA9C600704C08 /* quarang-challengeUITests */,
 			);
 			name = "quarang-challengeUITests";
 			packageProductDependencies = (
@@ -455,6 +459,29 @@
 			productReference = 81A4AB092DCCAAEB00704C08 /* Presentation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		81E120392DCF39F40029354F /* Presentation_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81E120402DCF39F40029354F /* Build configuration list for PBXNativeTarget "Presentation_Tests" */;
+			buildPhases = (
+				81E120362DCF39F40029354F /* Sources */,
+				81E120372DCF39F40029354F /* Frameworks */,
+				81E120382DCF39F40029354F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81E1203F2DCF39F40029354F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				81E1203B2DCF39F40029354F /* Presentation_Tests */,
+			);
+			name = Presentation_Tests;
+			packageProductDependencies = (
+			);
+			productName = Presentation_Tests;
+			productReference = 81E1203A2DCF39F40029354F /* Presentation_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -485,6 +512,10 @@
 					81A4AB082DCCAAEB00704C08 = {
 						CreatedOnToolsVersion = 16.3;
 					};
+					81E120392DCF39F40029354F = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 81A4AA552DCCA8D700704C08;
+					};
 				};
 			};
 			buildConfigurationList = 81A4AA512DCCA8D700704C08 /* Build configuration list for PBXProject "quarang-challenge" */;
@@ -512,6 +543,7 @@
 				81A4AAB52DCCAA9300704C08 /* Domain */,
 				81A4AAE22DCCAAD200704C08 /* Data */,
 				81A4AB082DCCAAEB00704C08 /* Presentation */,
+				81E120392DCF39F40029354F /* Presentation_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -553,6 +585,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		81A4AB072DCCAAEB00704C08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81E120382DCF39F40029354F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -604,6 +643,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		81E120362DCF39F40029354F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -636,6 +682,11 @@
 			isa = PBXTargetDependency;
 			target = 81A4AAB52DCCAA9300704C08 /* Domain */;
 			targetProxy = 81A4AB362DCCAB4A00704C08 /* PBXContainerItemProxy */;
+		};
+		81E1203F2DCF39F40029354F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81A4AA552DCCA8D700704C08 /* quarang-challenge */;
+			targetProxy = 81E1203E2DCF39F40029354F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1097,6 +1148,42 @@
 			};
 			name = Release;
 		};
+		81E120412DCF39F40029354F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.Presentation-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/quarang-challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/quarang-challenge";
+			};
+			name = Debug;
+		};
+		81E120422DCF39F40029354F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N676ZFA7W8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nbcamp-ch5-team3.Presentation-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/quarang-challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/quarang-challenge";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1159,6 +1246,15 @@
 			buildConfigurations = (
 				81A4AB212DCCAAEB00704C08 /* Debug */,
 				81A4AB222DCCAAEB00704C08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81E120402DCF39F40029354F /* Build configuration list for PBXNativeTarget "Presentation_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81E120412DCF39F40029354F /* Debug */,
+				81E120422DCF39F40029354F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

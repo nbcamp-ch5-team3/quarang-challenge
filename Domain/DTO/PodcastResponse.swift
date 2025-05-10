@@ -18,7 +18,7 @@ public struct PodcastResponse: Codable {
     let trackViewURL: String
     let artworkUrl30, artworkUrl60, artworkUrl100: String
     let collectionPrice, trackPrice, collectionHDPrice: Int
-    let releaseDate: Date
+    let releaseDate: String
     let collectionExplicitness, trackExplicitness: String
     let trackCount, trackTimeMillis: Int
     let country, currency, primaryGenreName, contentAdvisoryRating: String
@@ -43,7 +43,7 @@ public struct PodcastResponse: Codable {
 
 // MARK: - 뷰에서 사용할 Model로 변환
 extension PodcastResponse {
-    func toModel() -> ITunes {
+    public func toModel() -> ITunes {
         ITunes(
             id: trackID,
             title: trackName,
@@ -52,11 +52,11 @@ extension PodcastResponse {
             detailURL: URL(string: trackViewURL)!,
             genre: primaryGenreName,
             priceText: "무료",
-            releaseDate: releaseDate
+            releaseDate: releaseDate.toDateFromISO8601()
         )
     }
     
-    func toDetailModel() -> ITunesDetail {
+    public func toDetailModel() -> ITunesDetail {
         return ITunesDetail(
             id: trackID,
             title: trackName,
@@ -65,7 +65,7 @@ extension PodcastResponse {
             artworkURL: URL(string: artworkUrl100)!,
             previewURL: nil,
             genre: primaryGenreName,
-            releaseDate: releaseDate,
+            releaseDate: releaseDate.toDateFromISO8601(),
             priceText: "무료",
             contentAdvisory: trackExplicitness,
             languageCodes: nil,

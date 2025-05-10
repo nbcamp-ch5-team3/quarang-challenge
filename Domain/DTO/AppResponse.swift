@@ -9,64 +9,68 @@ import Foundation
 
 // MARK: - 앱 정보
 public struct AppResponse: Codable {
+    let isGameCenterEnabled: Bool
     let artistViewURL: String
     let artworkUrl60, artworkUrl100: String
-    let screenshotUrls, ipadScreenshotUrls: [String]
-    let appletvScreenshotUrls: [String]
+    let screenshotUrls, ipadScreenshotUrls, appletvScreenshotUrls: [String]
     let artworkUrl512: String
-    let isGameCenterEnabled: Bool
+    let features: [String]
+    let supportedDevices: [String]
     let advisories: [String]
-    let features, supportedDevices: [String]
-    let kind, trackCensoredName: String
+    let kind: String
+    let averageUserRatingForCurrentVersion: Double
+    let minimumOSVersion: String
+    let userRatingCountForCurrentVersion: Int
+    let trackContentRating, trackCensoredName: String
     let trackViewURL: String
     let contentAdvisoryRating: String
-    let averageUserRating, averageUserRatingForCurrentVersion: Double
+    let averageUserRating: Double
     let sellerURL: String?
     let languageCodesISO2A: [String]
     let fileSizeBytes, formattedPrice: String
-    let userRatingCountForCurrentVersion: Int
-    let trackContentRating, minimumOSVersion: String
     let artistID: Int
     let artistName: String
     let genres: [String]
     let price: Int
-    let releaseDate: Date
-    let trackID: Int
-    let trackName: String
-    let isVppDeviceBasedLicensingEnabled: Bool
     let bundleID: String
     let genreIDS: [String]
+    let releaseDate: String
     let primaryGenreName: String
     let primaryGenreID: Int
+    let isVppDeviceBasedLicensingEnabled: Bool
     let sellerName: String
-    let currentVersionReleaseDate: Date
+    let currentVersionReleaseDate: String
     let releaseNotes, version, wrapperType, currency: String
     let description: String
+    let trackID: Int
+    let trackName: String
     let userRatingCount: Int
-
+    
     enum CodingKeys: String, CodingKey {
+        case isGameCenterEnabled
         case artistViewURL = "artistViewUrl"
-        case artworkUrl60, artworkUrl100, screenshotUrls, ipadScreenshotUrls, appletvScreenshotUrls, artworkUrl512, isGameCenterEnabled, advisories, features, supportedDevices, kind, trackCensoredName
-        case trackViewURL = "trackViewUrl"
-        case contentAdvisoryRating, averageUserRating, averageUserRatingForCurrentVersion
-        case sellerURL = "sellerUrl"
-        case languageCodesISO2A, fileSizeBytes, formattedPrice, userRatingCountForCurrentVersion, trackContentRating
+        case artworkUrl60, artworkUrl100, screenshotUrls, ipadScreenshotUrls, appletvScreenshotUrls, artworkUrl512, features, supportedDevices, advisories, kind, averageUserRatingForCurrentVersion
         case minimumOSVersion = "minimumOsVersion"
+        case userRatingCountForCurrentVersion, trackContentRating, trackCensoredName
+        case trackViewURL = "trackViewUrl"
+        case contentAdvisoryRating, averageUserRating
+        case sellerURL = "sellerUrl"
+        case languageCodesISO2A, fileSizeBytes, formattedPrice
         case artistID = "artistId"
-        case artistName, genres, price, releaseDate
-        case trackID = "trackId"
-        case trackName, isVppDeviceBasedLicensingEnabled
+        case artistName, genres, price
         case bundleID = "bundleId"
         case genreIDS = "genreIds"
-        case primaryGenreName
+        case releaseDate, primaryGenreName
         case primaryGenreID = "primaryGenreId"
-        case sellerName, currentVersionReleaseDate, releaseNotes, version, wrapperType, currency, description, userRatingCount
+        case isVppDeviceBasedLicensingEnabled, sellerName, currentVersionReleaseDate, releaseNotes, version, wrapperType, currency, description
+        case trackID = "trackId"
+        case trackName, userRatingCount
     }
 }
 
 // MARK: - 뷰에서 사용할 Model로 변환
 extension AppResponse {
-    func toModel() -> ITunes {
+    public func toModel() -> ITunes {
         ITunes(
             id: trackID,
             title: trackName,
@@ -75,11 +79,11 @@ extension AppResponse {
             detailURL: URL(string: trackViewURL)!,
             genre: primaryGenreName,
             priceText: price == 0 ? "무료" : "₩\(price)",
-            releaseDate: releaseDate
+            releaseDate: releaseDate.toDateFromISO8601()
         )
     }
     
-    func toDetailModel() -> ITunesDetail {
+    public func toDetailModel() -> ITunesDetail {
         return ITunesDetail(
             id: trackID,
             title: trackName,
@@ -88,7 +92,7 @@ extension AppResponse {
             artworkURL: URL(string: artworkUrl100)!,
             previewURL: nil,
             genre: primaryGenreName,
-            releaseDate: releaseDate,
+            releaseDate: releaseDate.toDateFromISO8601(),
             priceText: formattedPrice,
             contentAdvisory: contentAdvisoryRating,
             languageCodes: languageCodesISO2A,

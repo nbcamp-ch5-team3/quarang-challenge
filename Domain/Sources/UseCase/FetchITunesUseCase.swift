@@ -17,13 +17,13 @@ public final class FetchITunesUseCase : FetchITunesUseCaseInterface {
         self.repository = repository
     }
     
-    public func excute(_ type: ViewType) -> Single<[ITunes]> {
+    public func excute(term: String, _ type: ViewType) -> Single<[ITunes]> {
         switch type {
-        case let .music(entity): return repository.fetchMusic(entity: entity)
-        case let .movie(entity): return repository.fetchMovie(entity: entity)
-        case let .app(entity): return repository.fetchApp(entity: entity)
-        case let .podcast(entity): return repository.fetchPodcast(entity: entity)
-        case let .search(media, entity): return repository.searchITunes(media: media, entity: entity)
+        case let .music(entity): return repository.fetchITunesData(term: term, media: type.type, entity: entity)
+        case let .movie(entity): return repository.fetchITunesData(term: term, media: type.type, entity: entity)
+        case let .app(entity): return repository.fetchITunesData(term: term, media: type.type, entity: entity)
+        case let .podcast(entity): return repository.fetchITunesData(term: term, media: type.type, entity: entity)
+        case let .search(media, entity): return repository.fetchITunesData(term: term, media: media, entity: entity)
         }
     }
 }

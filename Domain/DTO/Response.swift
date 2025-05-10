@@ -10,5 +10,5 @@ import Foundation
 // MARK: - Response
 public struct Response<T: Codable>: Codable {
     let resultCount: Int
-    let results: [T]
+    public let results: [T]
 }

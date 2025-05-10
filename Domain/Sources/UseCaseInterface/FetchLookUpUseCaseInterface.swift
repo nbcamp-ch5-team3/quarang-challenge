@@ -10,5 +10,5 @@ import RxSwift
 
 // MARK: - 상세 데이터 요청 유즈케이스
 protocol FetchLookUpUseCaseInterface {
-    func excute(id: String,_ type: MediaType) -> Single<[ITunes]>
+    func excute(id: Int,_ type: MediaType) -> Single<[ITunesDetail]>
 }
