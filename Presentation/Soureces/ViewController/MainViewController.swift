@@ -6,21 +6,12 @@
 //
 
 import UIKit
-import Domain
 
-// MARK: - 아이튠즈 뷰 컨트롤러
-public final class ITunesViewController: UIViewController {
+public final class MainViewController: UIViewController {
 
-    private let type: ViewType
-    private let viewModel: ITunesViewModel
-    private let iTunesView = ITunesView()
+    let viewModel: MainViewModel
     
-    public override func loadView() {
-        view = iTunesView
-    }
-    
-    public init(viewModel: ITunesViewModel, type: ViewType) {
-        self.type = type
+    public init(viewModel: MainViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -31,7 +22,7 @@ public final class ITunesViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemBlue
         // Do any additional setup after loading the view.
     }
 
