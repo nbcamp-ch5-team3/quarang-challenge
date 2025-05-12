@@ -7,12 +7,15 @@
 
 import Foundation
 import Domain
-import RxSwift
+internal import RxSwift
+import RxRelay
 
 // MARK: - 아이튠즈 뷰 모델
 public final class ITunesViewModel {
     
     private(set) var type: ViewType
+    
+    var items = BehaviorRelay<[ITunes]>(value: [])
     var disposeBag = DisposeBag()
     
     private let fetchITunesUscase: FetchITunesUseCase
@@ -41,6 +44,7 @@ public final class ITunesViewModel {
     func test() {
         fetchITunesUscase.excute(term: "봄", type)
             .subscribe(onSuccess: { items in
+                self.items.accept(items)
                 print("아이템 개수: \(items.count)")
             }, onFailure: { error in
                 if let networkError = error as? NetWorkError {

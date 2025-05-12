@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		819655AE2DCD880800156038 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 819655AD2DCD880800156038 /* RxCocoa */; };
-		819655B02DCD880800156038 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 819655AF2DCD880800156038 /* RxRelay */; };
 		819655B52DCD881700156038 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 819655B42DCD881700156038 /* SnapKit */; };
 		81A4AAF82DCCAAD200704C08 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAE32DCCAAD200704C08 /* Data.framework */; };
 		81A4AAF92DCCAAD200704C08 /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAE32DCCAAD200704C08 /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -16,10 +14,13 @@
 		81A4AB1F2DCCAAEB00704C08 /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AB092DCCAAEB00704C08 /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		81A4AB2F2DCCAB4500704C08 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAB62DCCAA9300704C08 /* Domain.framework */; };
 		81A4AB302DCCAB4500704C08 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAB62DCCAA9300704C08 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		81A4AB342DCCAB4A00704C08 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAB62DCCAA9300704C08 /* Domain.framework */; };
 		81A4AB352DCCAB4A00704C08 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAB62DCCAA9300704C08 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		81D960BA2DD202460036CBD8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 819655AD2DCD880800156038 /* RxCocoa */; };
+		81D9613C2DD202900036CBD8 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 81D9613B2DD202900036CBD8 /* RxDataSources */; };
+		81D961422DD204120036CBD8 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 81D961412DD204120036CBD8 /* RxDataSources */; };
 		81E11EF82DCDE1A60029354F /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 81E11EF72DCDE1A60029354F /* Then */; };
 		81E11F572DCDE8DE0029354F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 81E11F562DCDE8DE0029354F /* RxSwift */; };
+		81EE15142DD201E700528EE7 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A4AAB62DCCAA9300704C08 /* Domain.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D961422DD204120036CBD8 /* RxDataSources in Frameworks */,
 				81A4AAF82DCCAAD200704C08 /* Data.framework in Frameworks */,
 				81A4AB1E2DCCAAEB00704C08 /* Presentation.framework in Frameworks */,
 			);
@@ -236,10 +238,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D960BA2DD202460036CBD8 /* RxCocoa in Frameworks */,
+				81EE15142DD201E700528EE7 /* Domain.framework in Frameworks */,
 				81E11EF82DCDE1A60029354F /* Then in Frameworks */,
-				819655B02DCD880800156038 /* RxRelay in Frameworks */,
-				819655AE2DCD880800156038 /* RxCocoa in Frameworks */,
-				81A4AB342DCCAB4A00704C08 /* Domain.framework in Frameworks */,
+				81D9613C2DD202900036CBD8 /* RxDataSources in Frameworks */,
 				819655B52DCD881700156038 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +337,7 @@
 			);
 			name = "quarang-challenge";
 			packageProductDependencies = (
+				81D961412DD204120036CBD8 /* RxDataSources */,
 			);
 			productName = "quarang-challenge";
 			productReference = 81A4AA562DCCA8D700704C08 /* quarang-challenge.app */;
@@ -451,9 +454,9 @@
 			name = Presentation;
 			packageProductDependencies = (
 				819655AD2DCD880800156038 /* RxCocoa */,
-				819655AF2DCD880800156038 /* RxRelay */,
 				819655B42DCD881700156038 /* SnapKit */,
 				81E11EF72DCDE1A60029354F /* Then */,
+				81D9613B2DD202900036CBD8 /* RxDataSources */,
 			);
 			productName = Presentation;
 			productReference = 81A4AB092DCCAAEB00704C08 /* Presentation.framework */;
@@ -531,6 +534,7 @@
 				819655AC2DCD880800156038 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				819655B32DCD881700156038 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				81E11EF62DCDE1A60029354F /* XCRemoteSwiftPackageReference "Then" */,
+				81D961382DD202840036CBD8 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 81A4AA572DCCA8D700704C08 /* Products */;
@@ -1278,6 +1282,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		81D961382DD202840036CBD8 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 		81E11EF62DCDE1A60029354F /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then.git";
@@ -1294,15 +1306,20 @@
 			package = 819655AC2DCD880800156038 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		819655AF2DCD880800156038 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 819655AC2DCD880800156038 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
 		819655B42DCD881700156038 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 819655B32DCD881700156038 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		81D9613B2DD202900036CBD8 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81D961382DD202840036CBD8 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
+		81D961412DD204120036CBD8 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81D961382DD202840036CBD8 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 		81E11EF72DCDE1A60029354F /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
