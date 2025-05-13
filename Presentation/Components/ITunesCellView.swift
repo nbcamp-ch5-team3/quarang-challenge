@@ -7,8 +7,6 @@
 
 import UIKit
 import Domain
-internal import SnapKit
-internal import Then
 
 class ITunesCellView: UIView {
     
@@ -22,7 +20,6 @@ class ITunesCellView: UIView {
     /// 이미지 내부 타이틀
     private let imageTitleLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 16, weight: .semibold)
-        $0.textColor = .systemBackground
         $0.numberOfLines = 1
         $0.clipsToBounds = true
     }
@@ -30,7 +27,6 @@ class ITunesCellView: UIView {
     /// 이미지 내부 서브 타이틀
     private let imageSubtitleLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 14, weight: .regular)
-        $0.textColor = .white
         $0.numberOfLines = 1
         $0.clipsToBounds = true
     }
@@ -50,7 +46,6 @@ class ITunesCellView: UIView {
     private let purchaseLabel = UILabel().then {
         $0.text = "앱 내 구입"
         $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = .white
         $0.textAlignment = .center
     }
     
@@ -90,7 +85,6 @@ class ITunesCellView: UIView {
     private func configureLayout() {
         
         profileView.snp.makeConstraints {
-            $0.leading.bottom.equalToSuperview().inset(16)
             $0.size.equalTo(CGSize(width: 64, height: 64))
         }
         
@@ -111,5 +105,16 @@ class ITunesCellView: UIView {
         profileView.load(url: item.imageURL)
         imageTitleLabel.text = item.title
         imageSubtitleLabel.text = item.subtitle + " · " + item.releaseDate.toString(format: "yyyy")
+    }
+    
+    /// 셀 내부 텍스트 색상 업데이트
+    func configureColor() {
+        imageTitleLabel.textColor = .white
+        imageSubtitleLabel.textColor = .white
+        purchaseLabel.textColor = .white
+    }
+    
+    var getProfileView: UIImageView {
+        profileView
     }
 }
