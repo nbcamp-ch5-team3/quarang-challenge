@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let DIContainer = DIContainer()
         self.window = UIWindow(windowScene: windowScene)
-        self.window?.rootViewController = UINavigationController(rootViewController: DIContainer.makeTabBarController)
+        self.window?.rootViewController = DIContainer.makeTabBarController
         self.window?.makeKeyAndVisible()
     }
 
@@ -54,4 +54,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-

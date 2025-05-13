@@ -14,15 +14,23 @@ import UIKit
 // MARK: 아이튠즈를 위한 repo -> use case -> VM -> VC 순서로 의존성 주입 컨테이너
 final class DIContainer {
     
+    /// 탭바 아이템 설정 및 네비게이션 컨트롤러 설정 및 변환
+    private func makeNavigationController(_ vc: UIViewController, type: ViewType) -> UINavigationController {
+        vc.tabBarItem = UITabBarItem(title: type.text, image: UIImage(systemName: type.image), tag: type.tag)
+        vc.navigationItem.title = type.text
+        let nav = UINavigationController(rootViewController: vc)
+        nav.navigationBar.prefersLargeTitles = true
+        vc.navigationItem.largeTitleDisplayMode = .always
+        return nav
+    }
+    
     /// 아이튠즈 VC 생성 (타입에 따라 music, movie, app, podcast로 분류)
     func makeITunesViewController(_ type: ViewType) -> UIViewController {
         let repository = FetchITunesRepository()
         let useCase = FetchITunesUseCase(repository: repository)
         let viewModel = ITunesViewModel(fetchITunesUscase: useCase, type: type)
         let vc = ITunesViewController(viewModel: viewModel, DIContainer: self)
-        vc.tabBarItem = UITabBarItem(title: type.text, image: UIImage(systemName: type.image), tag: type.tag)
-        vc.navigationController?.navigationBar.topItem?.title = type.text
-        return vc
+        return makeNavigationController(vc, type: type)
     }
     
     /// 검색 VC 생성
@@ -32,9 +40,7 @@ final class DIContainer {
         let useCase = FetchITunesUseCase(repository: repository)
         let viewModel = SearchViewModel(fetchITunesUscase: useCase)
         let vc = SearchViewController(viewModel: viewModel)
-        vc.tabBarItem = UITabBarItem(title: type.text, image: UIImage(systemName: type.image), tag: type.tag)
-        vc.navigationController?.navigationBar.topItem?.title = type.text
-        return vc
+        return makeNavigationController(vc, type: type)
     }
     
     /// 의존성 주입이 완료된 뷰들을 탭바 아이템으로 지정
