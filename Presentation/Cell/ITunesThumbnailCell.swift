@@ -17,6 +17,7 @@ final class ITunesThumbnailCell: UICollectionViewCell {
     // 블러처리된 뷰 및 그라데이션 뷰
     private let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
     private let gradientView = UIView()
+    private let itunesCellView = ITunesCellView()
     
     /// 그라데이션 설정
     private lazy var gradientLayer = CAGradientLayer().then {
@@ -28,33 +29,10 @@ final class ITunesThumbnailCell: UICollectionViewCell {
         $0.locations = [0.5, 1.0]
     }
     
-    /// 프로필 제목 + 작가 + 연도 스택
-    private lazy var imageTitleStackView = UIStackView().then {
-        $0.axis = .vertical
-        $0.spacing = 4
-        $0.addArrangedSubview(imageTitleLabel)
-        $0.addArrangedSubview(imageSubtitleLabel)
-    }
-    
-    /// 받기 + 앱 내 구입 스택
-    private lazy var imageButtonStackView = UIStackView().then {
-        $0.axis = .vertical
-        $0.spacing = 4
-        $0.addArrangedSubview(downLoadLabel)
-        $0.addArrangedSubview(purchaseLabel)
-    }
-    
     /// 썸네일
     private let imageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    }
-    
-    /// 작은 이미지
-    private let profileView = UIImageView().then {
-        $0.contentMode = .scaleAspectFill
-        $0.layer.cornerRadius = 16
         $0.clipsToBounds = true
     }
 
@@ -73,22 +51,6 @@ final class ITunesThumbnailCell: UICollectionViewCell {
         $0.numberOfLines = 1
         $0.clipsToBounds = true
     }
-    
-    /// 이미지 내부 타이틀
-    private let imageTitleLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 16, weight: .semibold)
-        $0.textColor = .systemBackground
-        $0.numberOfLines = 1
-        $0.clipsToBounds = true
-    }
-
-    /// 이미지 내부 서브 타이틀
-    private let imageSubtitleLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 14, weight: .regular)
-        $0.textColor = .white
-        $0.numberOfLines = 1
-        $0.clipsToBounds = true
-    }
 
     /// 장르
     private let genreLabel = UILabel().then {
@@ -103,30 +65,10 @@ final class ITunesThumbnailCell: UICollectionViewCell {
         $0.clipsToBounds = true
     }
     
-    /// 이미지 내부 받기 버튼
-    private let downLoadLabel = PaddedLabel(vertical: 8, horizontal: 24).then {
-        $0.text = "받기"
-        $0.font = .systemFont(ofSize: 16, weight: .bold)
-        $0.textColor = .white
-        $0.textAlignment = .center
-        $0.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
-        $0.layer.cornerRadius = 16
-        $0.clipsToBounds = true
-    }
-
-    /// 이미지 내부 구입
-    private let purchaseLabel = UILabel().then {
-        $0.text = "앱 내 구입"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = .white
-        $0.textAlignment = .center
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureViews()
         configureLayout()
-        configureImageLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -141,7 +83,7 @@ final class ITunesThumbnailCell: UICollectionViewCell {
     private func configureViews() {
         [titleLabel, subtitleLabel, imageView, genreLabel, priceLabel]
             .forEach { contentView.addSubview($0) }
-        [blurView, gradientView, imageTitleStackView, profileView, imageButtonStackView]
+        [blurView, gradientView, itunesCellView]
             .forEach { imageView.addSubview($0) }
         gradientView.layer.addSublayer(gradientLayer)
     }
@@ -182,37 +124,21 @@ final class ITunesThumbnailCell: UICollectionViewCell {
             $0.top.equalTo(genreLabel.snp.bottom)
             $0.leading.equalToSuperview()
         }
-    }
-    
-    /// 이미지 내부 오토레이아웃 설정
-    private func configureImageLayout() {
-        profileView.snp.makeConstraints {
-            $0.leading.bottom.equalToSuperview().inset(16)
-            $0.size.equalTo(CGSize(width: 64, height: 64))
-        }
         
-        imageTitleStackView.snp.makeConstraints {
-            $0.leading.equalTo(profileView.snp.trailing).offset(8)
-            $0.centerY.equalTo(profileView).offset(8)
-            $0.width.equalTo(128)
-        }
-
-        imageButtonStackView.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(16)
-            $0.centerY.equalTo(profileView).offset(8)
+        itunesCellView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
 
     /// 셀 외부에서 데이터 업데이트
     func configure(with item: ITunes) {
         imageView.load(url: item.imageURL)
-        profileView.load(url: item.imageURL)
         titleLabel.text = item.title
         subtitleLabel.text = item.subtitle + " · " + item.releaseDate.toString(format: "yyyy")
-        imageTitleLabel.text = item.title
-        imageSubtitleLabel.text = item.subtitle + " · " + item.releaseDate.toString(format: "yyyy")
         genreLabel.text = item.genre
         priceLabel.text = item.priceText
+        
+        itunesCellView.configure(with: item)
     }
     
     /// 접근
