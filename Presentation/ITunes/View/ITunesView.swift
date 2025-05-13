@@ -41,8 +41,8 @@ final class ITunesView : UIView {
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
             let groupSize = NSCollectionLayoutSize(
-                widthDimension: .estimated(200),
-                heightDimension: .absolute(280)
+                widthDimension: .fractionalWidth(0.9),
+                heightDimension: .fractionalHeight(0.375)
             )
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
@@ -50,6 +50,7 @@ final class ITunesView : UIView {
             section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
             section.interGroupSpacing = 8
             section.orthogonalScrollingBehavior = .groupPagingCentered
+            
 
             return section
         }

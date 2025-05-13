@@ -42,11 +42,11 @@ public final class ITunesViewController: UIViewController {
 
     func configureLayout() {
         
-        iTunesView.getCollectionView.register(ITunesCollectionViewCell.self, forCellWithReuseIdentifier: "ITunesCollectionViewCell")
+        iTunesView.getCollectionView.register(ITunesThumbnailCell.self, forCellWithReuseIdentifier: "ITunesThumbnailCell")
 
         let dataSource = RxCollectionViewSectionedReloadDataSource<ITunesSection>(
             configureCell: { dataSource, collectionView, indexPath, item in
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ITunesCollectionViewCell", for: indexPath) as! ITunesCollectionViewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ITunesThumbnailCell", for: indexPath) as! ITunesThumbnailCell
 
                 switch item {
                 case let .spring(itunes),
