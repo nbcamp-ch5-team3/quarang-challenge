@@ -11,9 +11,10 @@ internal import RxSwift
 import RxDataSources
 
 // MARK: - RxDataSource를 위한 섹션 모델 정의
-typealias ITunesSection = SectionModel<String, ITunesSectionItem>
+typealias ITunesSection = SectionModel<SeasonType, ITunesSectionItem>
 
 enum ITunesSectionItem {
+    case category(entity: ITunesEntity)
     case spring(item: ITunes)
     case summer(item: ITunes)
     case autumn(item: ITunes)
@@ -28,12 +29,28 @@ public final class ITunesViewController: UIViewController {
     private let iTunesView = ITunesView()
     private var disposeBag = DisposeBag()
     
+    private let type: ViewType
+    private let itemCatergory: [ITunesEntity]
+    private lazy var entity: ITunesEntity? = itemCatergory.first
+    
     /// 데아터 소스 - 셀 타입 및 헤더 설정
     private var dataSource: RxCollectionViewSectionedReloadDataSource<ITunesSection> {
         RxCollectionViewSectionedReloadDataSource<ITunesSection>(
             configureCell: { _, collectionView, indexPath, item in
                 // 셀 반환
                 switch item {
+                case let .category(entity):
+                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as! CategoryCell
+                    
+                    cell.configure(entity: entity, selected: self.entity == entity)
+                    
+//                    cell.tapSubject
+//                        .subscribe(with: self, onNext: { owner, tappedEntity in
+//                            self.entity = entity
+//                            cell.configure(entity: entity, selected: owner.entity == entity)
+//                        })
+//                        .disposed(by: cell.disposeBag)
+                    return cell
                 case let .spring(itunes):
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ITunesThumbnailCell.identifier, for: indexPath) as! ITunesThumbnailCell
                     cell.configure(with: itunes)
@@ -43,15 +60,20 @@ public final class ITunesViewController: UIViewController {
                     cell.configure(with: itunes)
                     return cell
                 }
-            }) {  dataSource, collectionView, _, indexPath in
-                // 헤더 반환
+            }) { dataSource, collectionView, _, indexPath in
+                let model = dataSource.sectionModels[indexPath.section].model
+                
+                guard model != .category else { return UICollectionReusableView() }
+
                 guard let header = collectionView.dequeueReusableSupplementaryView(
                     ofKind: UICollectionView.elementKindSectionHeader,
                     withReuseIdentifier: SectionHeaderView.identifier,
                     for: indexPath
-                ) as? SectionHeaderView else { return UICollectionReusableView() }
-                
-                header.titleLabel.text = dataSource.sectionModels[indexPath.section].model
+                ) as? SectionHeaderView else {
+                    return UICollectionReusableView()
+                }
+
+                header.configure(title: model.title, subTitle: model.subtitle)
                 return header
             }
     }
@@ -60,12 +82,15 @@ public final class ITunesViewController: UIViewController {
         view = iTunesView
     }
     
-    public init(viewModel: ITunesViewModel, DIContainer: DetailDIContainerInterface) {
+    public init(viewModel: ITunesViewModel, type: ViewType, DIContainer: DetailDIContainerInterface) {
         self.viewModel = viewModel
         self.DIContainer = DIContainer
+        self.type = type
+        self.itemCatergory = type.entityEnum
         super.init(nibName: nil, bundle: nil)
         configureRegister()
         bindViewModel()
+        iTunesView.getCollectionView.allowsMultipleSelection = false
     }
     
     required init?(coder: NSCoder) {
@@ -80,6 +105,7 @@ public final class ITunesViewController: UIViewController {
     
     /// 컬렉션 뷰 셀 및 헤더 설정
     private func configureRegister() {
+        iTunesView.getCollectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.identifier)
         iTunesView.getCollectionView.register(ITunesThumbnailCell.self, forCellWithReuseIdentifier: ITunesThumbnailCell.identifier)
         iTunesView.getCollectionView.register(ITunesCell.self, forCellWithReuseIdentifier: ITunesCell.identifier)
         iTunesView.getCollectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.identifier)
@@ -94,17 +120,24 @@ public final class ITunesViewController: UIViewController {
                 let autumns: [ITunesSectionItem] = items.map { ITunesSectionItem.autumn(item: $0) }
                 let winters: [ITunesSectionItem] = items.map { ITunesSectionItem.winter(item: $0) }
                 return [
-                    ITunesSection(model: "봄 추천", items: springs),
-                    ITunesSection(model: "여름 추천", items: summers),
-                    ITunesSection(model: "가을 추천", items: autumns),
-                    ITunesSection(model: "겨울 추천", items: winters)
+                    ITunesSection(model: .category, items: category),
+                    ITunesSection(model: .spring, items: springs),
+                    ITunesSection(model: .summer, items: summers),
+                    ITunesSection(model: .autumn, items: autumns),
+                    ITunesSection(model: .winter, items: winters)
                 ]
             }
             .bind(to: iTunesView.getCollectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
+    
+    private func setItunesType(_ entity: ITunesEntity) -> ViewType {
+        switch type {
+        case .music: return ViewType.music(entity: entity.entity)
+        case .movie: return ViewType.movie(entity: entity.entity)
+        case .app: return ViewType.app(entity: entity.entity)
+        case .podcast: return ViewType.podcast(entity: entity.entity)
+        default : return type
+        }
+    }
 }
-
-
-
-

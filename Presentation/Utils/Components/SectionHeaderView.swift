@@ -12,22 +12,48 @@ final class SectionHeaderView: UICollectionReusableView {
     
     static let identifier = "SectionHeaderView"
 
-    let titleLabel = UILabel().then {
+    private let titleLabel = UILabel().then {
         $0.font = UIFont.boldSystemFont(ofSize: 24)
         $0.textColor = .label
+    }
+    
+    private let subTitleLabel = UILabel().then {
+        $0.font = UIFont.boldSystemFont(ofSize: 18)
+        $0.textColor = .secondaryLabel
+    }
+    
+    private lazy var titleStackView = UIStackView(arrangedSubviews: [titleLabel, subTitleLabel]).then {
+        $0.axis = .vertical
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(8)
-            $0.top.equalToSuperview().offset(12)
-        }
+        configureAddSubViews()
+        configureLayout()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    /// 서브 뷰 추가
+    private func configureAddSubViews() {
+        addSubview(titleStackView)
+    }
+    
+    /// 레이아웃 설정
+    private func configureLayout() {
+        titleStackView.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(10)
+            $0.top.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(10)
+        }
+    }
+    
+    /// 외부에서 헤더 데이터 설정
+    func configure(title: String, subTitle: String) {
+        titleLabel.text = title
+        subTitleLabel.text = subTitle
     }
 }

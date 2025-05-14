@@ -23,29 +23,60 @@ final class ITunesView : UIView {
     private var sectionHeader: NSCollectionLayoutBoundarySupplementaryItem {
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(44)
+            heightDimension: .absolute(64)
         )
-        return NSCollectionLayoutBoundarySupplementaryItem(
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top
         )
+        header.extendsBoundary = true
+        return header
     }
     
     /// 레이아웃 그룹
     private func itunesLayoutGroup(to index: Int) -> NSCollectionLayoutGroup {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(index == 0 ? 1.0 : 0.35)
-        )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.9),
-            heightDimension: .fractionalHeight(index == 0 ? 0.375 : 0.3)
-        )
-        return index == 0 ? NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item]) :
-                            NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 3)
+        switch index {
+        case 0:
+            // 셀 크기를 콘텐츠 길이에 맞게 동적 조정
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .estimated(200),
+                heightDimension: .estimated(44)
+            )
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .estimated(200),
+                heightDimension: .estimated(44)
+            )
+            return NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+
+        case 1:
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0)
+            )
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(0.9),
+                heightDimension: .fractionalHeight(0.375)
+            )
+            return NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+
+        default:
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(0.35)
+            )
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(0.9),
+                heightDimension: .fractionalHeight(0.3)
+            )
+            return NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 3)
+        }
     }
     
     /// 섹션
@@ -53,8 +84,8 @@ final class ITunesView : UIView {
         let section = NSCollectionLayoutSection(group: itunesLayoutGroup(to: index))
         section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
         section.interGroupSpacing = 8
-        section.orthogonalScrollingBehavior = .groupPagingCentered
-        section.boundarySupplementaryItems = [sectionHeader]
+        section.orthogonalScrollingBehavior = index == 0 ? .continuous : .groupPagingCentered
+        section.boundarySupplementaryItems = index == 0 ? [] : [sectionHeader]
         return section
     }
     
@@ -82,6 +113,3 @@ final class ITunesView : UIView {
         collectionView
     }
 }
-
-
-

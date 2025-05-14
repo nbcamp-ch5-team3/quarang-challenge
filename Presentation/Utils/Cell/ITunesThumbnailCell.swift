@@ -102,12 +102,12 @@ final class ITunesThumbnailCell: UICollectionViewCell {
         }
 
         subtitleLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+            $0.top.equalTo(titleLabel.snp.bottom)
             $0.leading.equalToSuperview()
         }
         
         imageView.snp.makeConstraints {
-            $0.top.equalTo(subtitleLabel.snp.bottom).offset(4)
+            $0.top.equalTo(subtitleLabel.snp.bottom).offset(8)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(imageView.snp.width).dividedBy(1.5)
         }

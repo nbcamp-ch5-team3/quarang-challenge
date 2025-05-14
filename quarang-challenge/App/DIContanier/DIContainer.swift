@@ -28,8 +28,8 @@ final class DIContainer {
     func makeITunesViewController(_ type: ViewType) -> UIViewController {
         let repository = FetchITunesRepository()
         let useCase = FetchITunesUseCase(repository: repository)
-        let viewModel = ITunesViewModel(fetchITunesUscase: useCase, type: type)
-        let vc = ITunesViewController(viewModel: viewModel, DIContainer: self)
+        let viewModel = ITunesViewModel(fetchITunesUscase: useCase)
+        let vc = ITunesViewController(viewModel: viewModel,type: type, DIContainer: self)
         return makeNavigationController(vc, type: type)
     }
     
