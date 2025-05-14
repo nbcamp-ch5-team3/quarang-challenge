@@ -19,11 +19,11 @@ public final class FetchITunesUseCase : FetchITunesUseCaseInterface {
     
     public func excute(term: String, _ type: ViewType) -> Single<[ITunes]> {
         switch type {
-        case let .music(entity): return repository.fetchITunesData(term: term, media: type.type, entity: entity)
-        case let .movie(entity): return repository.fetchITunesData(term: term, media: type.type, entity: entity)
-        case let .app(entity): return repository.fetchITunesData(term: term, media: type.type, entity: entity)
-        case let .podcast(entity): return repository.fetchITunesData(term: term, media: type.type, entity: entity)
-        case let .search(media, entity): return repository.fetchITunesData(term: term, media: media, entity: entity)
+        case let .music(entity): return repository.fetchITunesData(term: term, media: type.type, attributes: entity)
+        case let .movie(entity): return repository.fetchITunesData(term: term, media: type.type, attributes: entity)
+        case let .app(entity): return repository.fetchITunesData(term: term, media: type.type, attributes: entity)
+        case let .podcast(entity): return repository.fetchITunesData(term: term, media: type.type, attributes: entity)
+        case let .search(media, entity): return repository.fetchITunesData(term: term, media: media, attributes: entity)
         }
     }
 }

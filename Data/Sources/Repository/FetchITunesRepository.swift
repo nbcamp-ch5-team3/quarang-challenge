@@ -15,7 +15,7 @@ public final class FetchITunesRepository: FetchITunesRepositoryInterface {
     private let manager = ITunesAPIManager.shared
     public init() { }
     
-    public func fetchITunesData(term: String, media: MediaType, entity: String) -> Single<[ITunes]> {
-        manager.fetchITunesData(term: term, media: media, entity: entity)
+    public func fetchITunesData(term: String, media: MediaType, attributes: String) -> Single<[ITunes]> {
+        manager.fetchITunesData(term: term, media: media, attributes: attributes)
     }
 }
