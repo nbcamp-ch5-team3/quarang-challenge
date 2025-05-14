@@ -16,8 +16,8 @@ final class ITunesAPIManager {
     private init() { }
     
     /// 아이튠즈 API 요청  Single 타입으로 반환
-    func fetchITunesData(term: String, media: MediaType, entity: String) -> Single<[ITunes]> {
-        let request = APIRequest.iTunes(term: term, media: media.rawValue, entity: entity).urlRequest
+    func fetchITunesData(term: String, media: MediaType, attributes: String) -> Single<[ITunes]> {
+        let request = APIRequest.iTunes(term: term, media: media.rawValue, attributes: attributes).urlRequest
         return requestITunesData(with: request, media: media)
     }
     

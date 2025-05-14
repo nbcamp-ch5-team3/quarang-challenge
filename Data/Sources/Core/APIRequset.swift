@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: API 요청 URL Request 생성
 enum APIRequest {
-    case iTunes(term: String, media: String, entity: String)
+    case iTunes(term: String, media: String, attributes: String)
     case iTunesDetail(id: Int)
     
     var baseURL: URL {
@@ -25,12 +25,12 @@ enum APIRequest {
     
     var queryItems: [URLQueryItem] {
         switch self {
-        case let .iTunes(term, media, entity):
+        case let .iTunes(term, media, attributes):
             return [
                 URLQueryItem(name: "term", value: term),
                 URLQueryItem(name: "country", value: "KR"),
                 URLQueryItem(name: "media", value: media),
-                URLQueryItem(name: "entity", value: entity),
+                URLQueryItem(name: "attributes", value: attributes),
                 URLQueryItem(name: "limit", value: "20")
             ]
         case let .iTunesDetail(id):
