@@ -11,7 +11,8 @@ import Foundation
 public struct AppResponse: Codable {
     let isGameCenterEnabled: Bool
     let artistViewURL: String
-    let artworkUrl60, artworkUrl100: String
+    let artworkUrl60: String
+    let artworkUrl100: String?
     let screenshotUrls, ipadScreenshotUrls, appletvScreenshotUrls: [String]
     let artworkUrl512: String
     let features: [String]
@@ -22,8 +23,8 @@ public struct AppResponse: Codable {
     let minimumOSVersion: String
     let userRatingCountForCurrentVersion: Int
     let trackContentRating, trackCensoredName: String
-    let trackViewURL: String
-    let contentAdvisoryRating: String
+    let trackViewURL: String?
+    let contentAdvisoryRating: String?
     let averageUserRating: Double
     let sellerURL: String?
     let languageCodesISO2A: [String]
@@ -34,7 +35,7 @@ public struct AppResponse: Codable {
     let price: Int
     let bundleID: String
     let genreIDS: [String]
-    let releaseDate: String
+    let releaseDate: String?
     let primaryGenreName: String
     let primaryGenreID: Int
     let isVppDeviceBasedLicensingEnabled: Bool
@@ -75,11 +76,11 @@ extension AppResponse {
             id: trackID,
             title: trackName,
             subtitle: artistName,
-            imageURL: URL(string: artworkUrl100.replacingOccurrences(of: "100x100", with: "1024x1024"))!,
-            detailURL: URL(string: trackViewURL)!,
+            imageURL: URL(string: artworkUrl100?.replacingOccurrences(of: "100x100", with: "1024x1024") ?? "")!,
+            detailURL: URL(string: trackViewURL ?? "https://www.google.com/search?q=\(trackName)")!,
             genre: primaryGenreName,
             priceText: price == 0 ? "무료" : "₩\(price)",
-            releaseDate: releaseDate.toDateFromISO8601()
+            releaseDate: releaseDate?.toDateFromISO8601() ?? Date()
         )
     }
     
@@ -89,10 +90,10 @@ extension AppResponse {
             title: trackName,
             subtitle: artistName,
             description: description,
-            artworkURL: URL(string: artworkUrl100.replacingOccurrences(of: "100x100", with: "1024x1024"))!,
+            artworkURL: URL(string: artworkUrl100?.replacingOccurrences(of: "100x100", with: "1024x1024") ?? "")!,
             previewURL: nil,
             genre: primaryGenreName,
-            releaseDate: releaseDate.toDateFromISO8601(),
+            releaseDate: releaseDate?.toDateFromISO8601() ?? Date(),
             priceText: formattedPrice,
             contentAdvisory: contentAdvisoryRating,
             languageCodes: languageCodesISO2A,
@@ -101,7 +102,7 @@ extension AppResponse {
             isStreamable: nil,
             trackTimeMillis: nil,
             feedURL: nil,
-            detailURL: URL(string: trackViewURL)!,
+            detailURL: URL(string: trackViewURL ?? "https://www.google.com/search?q=\(trackName)")!,
             mediaType: .app
         )
     }

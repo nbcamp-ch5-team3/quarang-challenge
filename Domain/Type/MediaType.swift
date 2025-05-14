@@ -9,5 +9,5 @@ import Foundation
 
 // MARK: - 미디어 타입
 public enum MediaType: String {
-    case app, movie, music, podcast
+    case app = "software", movie, music, podcast
 }

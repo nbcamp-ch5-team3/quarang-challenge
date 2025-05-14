@@ -11,22 +11,29 @@ import Foundation
 public struct MusicResponse: Codable {
     let wrapperType: String
     let kind: String
-    let artistID, collectionID, trackID: Int
-    let artistName, collectionName, trackName, collectionCensoredName: String
+    let artistID, trackID: Int
+    let collectionID: Int?
+    let collectionName: String?
+    let artistName, trackName: String
+    let collectionCensoredName: String?
     let trackCensoredName: String
-    let artistViewURL, collectionViewURL, trackViewURL: String
-    let previewURL: String
+    let collectionViewURL: URL?
+    let artistViewURL, trackViewURL: String
+    let previewURL: String?
     let artworkUrl30, artworkUrl60, artworkUrl100: String
     let releaseDate: String
     let collectionExplicitness, trackExplicitness: String
-    let discCount, discNumber, trackCount, trackNumber: Int
-    let trackTimeMillis: Int
+    let discCount:Int?
+    let discNumber: Int?
+    let trackCount, trackNumber: Int?
+    let trackTimeMillis: Int?
     let country: String
     let currency: String
     let primaryGenreName: String
-    let isStreamable: Bool
+    let isStreamable: Bool?
     let collectionArtistID: Int?
     let collectionArtistName, contentAdvisoryRating: String?
+    let collectionHdPrice: Double?
     
     enum CodingKeys: String, CodingKey {
         case wrapperType, kind
@@ -41,6 +48,7 @@ public struct MusicResponse: Codable {
         case artworkUrl30, artworkUrl60, artworkUrl100, releaseDate, collectionExplicitness, trackExplicitness, discCount, discNumber, trackCount, trackNumber, trackTimeMillis, country, currency, primaryGenreName, isStreamable
         case collectionArtistID = "collectionArtistId"
         case collectionArtistName, contentAdvisoryRating
+        case collectionHdPrice
     }
 }
 
@@ -66,7 +74,7 @@ extension MusicResponse {
             subtitle: artistName,
             description: nil,
             artworkURL: URL(string: artworkUrl100.replacingOccurrences(of: "100x100", with: "1024x1024"))!,
-            previewURL: URL(string: previewURL),
+            previewURL: URL(string: previewURL ?? "")!,
             genre: primaryGenreName,
             releaseDate: releaseDate.toDateFromISO8601(),
             priceText: "무료",

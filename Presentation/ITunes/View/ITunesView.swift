@@ -60,7 +60,7 @@ final class ITunesView : UIView {
 
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(0.9),
-                heightDimension: .fractionalHeight(0.375)
+                heightDimension: .fractionalHeight(0.4)
             )
             return NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 

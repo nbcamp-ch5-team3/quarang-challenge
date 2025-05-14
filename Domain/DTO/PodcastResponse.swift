@@ -14,14 +14,17 @@ public struct PodcastResponse: Codable {
     let artistName, collectionName, trackName, collectionCensoredName: String
     let trackCensoredName: String
     let collectionViewURL: String
-    let feedURL: String
-    let trackViewURL: String
-    let artworkUrl30, artworkUrl60, artworkUrl100: String
+    let feedURL: String?
+    let trackViewURL: String?
+    let artworkUrl30, artworkUrl60: String
+    let artworkUrl100: String?
     let collectionPrice, trackPrice, collectionHDPrice: Int
-    let releaseDate: String
+    let releaseDate: String?
     let collectionExplicitness, trackExplicitness: String
-    let trackCount, trackTimeMillis: Int
-    let country, currency, primaryGenreName, contentAdvisoryRating: String
+    let trackCount: Int
+    let trackTimeMillis: Int?
+    let country, currency, primaryGenreName: String
+    let contentAdvisoryRating: String?
     let artworkUrl600: String
     let genreIDS, genres: [String]
 
@@ -48,11 +51,11 @@ extension PodcastResponse {
             id: trackID,
             title: trackName,
             subtitle: artistName,
-            imageURL: URL(string: artworkUrl100.replacingOccurrences(of: "100x100", with: "1024x1024"))!,
-            detailURL: URL(string: trackViewURL)!,
+            imageURL: URL(string: artworkUrl100?.replacingOccurrences(of: "100x100", with: "1024x1024") ?? "")!,
+            detailURL: URL(string: trackViewURL ?? "https://www.google.com/search?q=\(trackName)")!,
             genre: primaryGenreName,
             priceText: "무료",
-            releaseDate: releaseDate.toDateFromISO8601()
+            releaseDate: releaseDate?.toDateFromISO8601() ?? Date()
         )
     }
     
@@ -62,10 +65,10 @@ extension PodcastResponse {
             title: trackName,
             subtitle: artistName,
             description: collectionCensoredName,
-            artworkURL: URL(string: artworkUrl100.replacingOccurrences(of: "100x100", with: "1024x1024"))!,
+            artworkURL: URL(string: artworkUrl100?.replacingOccurrences(of: "100x100", with: "1024x1024") ?? "")!,
             previewURL: nil,
             genre: primaryGenreName,
-            releaseDate: releaseDate.toDateFromISO8601(),
+            releaseDate: releaseDate?.toDateFromISO8601() ?? Date(),
             priceText: "무료",
             contentAdvisory: trackExplicitness,
             languageCodes: nil,
@@ -73,8 +76,8 @@ extension PodcastResponse {
             sellerName: artistName,
             isStreamable: false,
             trackTimeMillis: trackTimeMillis,
-            feedURL: URL(string: feedURL),
-            detailURL: URL(string: trackViewURL)!,
+            feedURL: URL(string: feedURL ?? ""),
+            detailURL: URL(string: trackViewURL ?? "https://www.google.com/search?q=\(trackName)")!,
             mediaType: .podcast
         )
     }
