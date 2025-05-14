@@ -100,7 +100,8 @@ public final class ITunesViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        viewModel.test()
+        guard let entity else { return }
+        viewModel.state.actionSubject.onNext(.viewDidLoad(type: setItunesType(entity)))
     }
     
     /// 컬렉션 뷰 셀 및 헤더 설정
@@ -113,12 +114,44 @@ public final class ITunesViewController: UIViewController {
     
     /// 뷰 바인딩
     func bindViewModel() {
-        viewModel.items
-            .map { items in
-                let springs: [ITunesSectionItem] = items.map { ITunesSectionItem.spring(item: $0) }
-                let summers: [ITunesSectionItem] = items.map { ITunesSectionItem.summer(item: $0) }
-                let autumns: [ITunesSectionItem] = items.map { ITunesSectionItem.autumn(item: $0) }
-                let winters: [ITunesSectionItem] = items.map { ITunesSectionItem.winter(item: $0) }
+        
+        iTunesView.getCollectionView.rx
+            .modelSelected(ITunesSectionItem.self)
+            .withUnretained(self)
+            .bind { owner, item in
+                switch item {
+                case .category(let entity):
+                    guard let oldEntity = self.entity,
+                          let oldIndex = owner.itemCatergory.firstIndex(of: oldEntity),
+                          let newIndex = owner.itemCatergory.firstIndex(of: entity)
+                    else { return }
+                    owner.entity = entity
+                    owner.viewModel.state.actionSubject.onNext(.viewDidLoad(type: owner.setItunesType(entity)))
+
+                    let oldIndexPath = IndexPath(item: oldIndex, section: 0)
+                    let newIndexPath = IndexPath(item: newIndex, section: 0)
+                    owner.iTunesView.getCollectionView.reloadItems(at: [oldIndexPath, newIndexPath])
+                default:
+                    break
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        Observable
+            .combineLatest(
+                viewModel.state.springItems,
+                viewModel.state.summerItems,
+                viewModel.state.autumnItems,
+                viewModel.state.winterItems
+            )
+            .withUnretained(self)
+            .map { owner, items in
+                let (spring, summer, autumn, winter) = items
+                let category = owner.itemCatergory.map { ITunesSectionItem.category(entity: $0) }
+                let springs = spring.map { ITunesSectionItem.spring(item: $0) }
+                let summers = summer.map { ITunesSectionItem.summer(item: $0) }
+                let autumns = autumn.map { ITunesSectionItem.autumn(item: $0) }
+                let winters = winter.map { ITunesSectionItem.winter(item: $0) }
                 return [
                     ITunesSection(model: .category, items: category),
                     ITunesSection(model: .spring, items: springs),
