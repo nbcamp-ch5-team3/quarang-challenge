@@ -47,8 +47,8 @@ class CategoryCell: UICollectionViewCell {
     }
     
     /// 셀 외부에서 데이터 업데이트
-    func configure(entity: ITunesEntity, selected: Bool) {
-        label.text = "\(entity.image) \(entity.label)"
+    func configure(attributes: ITunesAttributes, selected: Bool) {
+        label.text = "\(attributes.image) \(attributes.label)"
         label.backgroundColor = selected ? .systemBlue : .systemGray5
         label.textColor = selected ? .white : .label
     }
@@ -64,9 +64,9 @@ class CategoryCell: UICollectionViewCell {
 //class CategoryCell: UICollectionViewCell {
 //    
 //    static let identifier = "CategoryCell"
-//    var tapSubject = PublishSubject<ITunesEntity>()
+//    var tapSubject = PublishSubject<ITunesAttributes>()
 //    var disposeBag = DisposeBag()
-//    private var entity: ITunesEntity?
+//    private var attributes: ITunesAttributes?
 //    
 //    private let button = UIButton(configuration: .filled()).then {
 //        $0.layer.cornerRadius = 8
@@ -95,8 +95,8 @@ class CategoryCell: UICollectionViewCell {
 //        button.rx.tap
 //            .withUnretained(self)
 //            .subscribe(onNext: { owner, _  in
-//                if let entity = owner.entity {
-//                    owner.tapSubject.onNext(entity)
+//                if let attributes = owner.attributes {
+//                    owner.tapSubject.onNext(attributes)
 //                }
 //            })
 //            .disposed(by: disposeBag)
@@ -114,11 +114,11 @@ class CategoryCell: UICollectionViewCell {
 //    }
 //    
 //    /// 셀 외부에서 데이터 업데이트
-//    func configure(entity: ITunesEntity, selected: Bool) {
-//        self.entity = entity
+//    func configure(attributes: ITunesAttributes, selected: Bool) {
+//        self.attributes = attributes
 //        
 //        var config = button.configuration
-//        config?.title = "\(entity.image) \(entity.label)"
+//        config?.title = "\(attributes.image) \(attributes.label)"
 //        config?.baseBackgroundColor = selected ? .systemBlue : .systemGray5
 //        config?.baseForegroundColor = selected ? .white : .label
 //        button.configuration = config

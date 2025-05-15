@@ -114,7 +114,17 @@ class ITunesCellView: UIView {
         purchaseLabel.textColor = .white
     }
     
+    
+    // 접근
     var getProfileView: UIImageView {
         profileView
+    }
+    
+    var getImageTitleLabel: UILabel {
+        imageTitleLabel
+    }
+    
+    var getImageSubtitleLabel: UILabel {
+        imageSubtitleLabel
     }
 }

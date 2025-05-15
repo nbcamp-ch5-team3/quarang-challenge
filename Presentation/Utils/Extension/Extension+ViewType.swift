@@ -10,26 +10,54 @@ import Domain
 
 // MARK: - 타입 별 카테고리리스트를 반환하기 위한 확장
 extension ViewType {
-    var entityEnum: [ITunesEntity] {
+    var attributesEnum: [ITunesAttributes] {
         switch self {
-        case .music: MusicEntity.allCases.map { ITunesEntity(entity: $0.rawValue, label: $0.label, image: $0.image) }
-        case .movie: MovieEntity.allCases.map { ITunesEntity(entity: $0.rawValue, label: $0.label, image: $0.image) }
-        case .app: AppEntity.allCases.map { ITunesEntity(entity: $0.rawValue, label: $0.label, image: $0.image) }
-        case .podcast: PodcastEntity.allCases.map { ITunesEntity(entity: $0.rawValue, label: $0.label, image: $0.image) }
-        default: []
+        case .music: MusicAttributes.allCases.map { ITunesAttributes(attributes: $0.rawValue, label: $0.label, image: $0.image) }
+        case .movie: MovieAttributes.allCases.map { ITunesAttributes(attributes: $0.rawValue, label: $0.label, image: $0.image) }
+        case .app: AppAttributes.allCases.map { ITunesAttributes(attributes: $0.rawValue, label: $0.label, image: $0.image) }
+        case .podcast: PodcastAttributes.allCases.map { ITunesAttributes(attributes: $0.rawValue, label: $0.label, image: $0.image) }
+        case let .search(media, _):
+            switch media {
+            case .app: AppAttributes.allCases.map { ITunesAttributes(attributes: $0.rawValue, label: $0.label, image: $0.image) }
+            case .movie: MovieAttributes.allCases.map { ITunesAttributes(attributes: $0.rawValue, label: $0.label, image: $0.image) }
+            case .music: MusicAttributes.allCases.map { ITunesAttributes(attributes: $0.rawValue, label: $0.label, image: $0.image) }
+            case .podcast: PodcastAttributes.allCases.map { ITunesAttributes(attributes: $0.rawValue, label: $0.label, image: $0.image) }
+            }
+        }
+    }
+    
+    ///  현제 타입의 전체 케이스 배열
+    static var allCases: [ViewType] {
+        [
+            .music(attributes: "music"),
+            .movie(attributes: "movie"),
+            .app(attributes: "app"),
+            .podcast(attributes: "podcast"),
+            .search(media: .music, attributes: "search")
+        ]
+    }
+    
+    /// 인덱스로 현제 타입 접근
+    static func getViewType(index: Int) -> Self {
+        switch index {
+        case 0: return .music(attributes: "music")
+        case 1: return .movie(attributes: "movie")
+        case 2: return .app(attributes: "software")
+        case 3: return .podcast(attributes: "podcast")
+        default: fatalError("invalid index")
         }
     }
 }
 
 // MARK: 변환 타입
-struct ITunesEntity: Equatable {
-    let entity: String
+struct ITunesAttributes: Equatable {
+    let attributes: String
     let label: String
     let image: String
 }
 
 // MARK: 뮤직 타입
-enum MusicEntity: String, CaseIterable {
+enum MusicAttributes: String, CaseIterable {
     case all, songTerm, mixTerm, genreIndex, artistTerm, composerTerm, albumTerm, ratingIndex
 
     var label: String {
@@ -60,7 +88,7 @@ enum MusicEntity: String, CaseIterable {
 }
 
 // MARK: 영화 타입
-enum MovieEntity: String, CaseIterable {
+enum MovieAttributes: String, CaseIterable {
     case all, actorTerm, genreIndex, artistTerm, shortFilmTerm, producerTerm, ratingTerm, directorTerm, releaseYearTerm, featureFilmTerm, movieArtistTerm, movieTerm, ratingIndex, descriptionTerm
 
     var label: String {
@@ -103,7 +131,7 @@ enum MovieEntity: String, CaseIterable {
 }
 
 // MARK: 앱 타입
-enum AppEntity: String, CaseIterable {
+enum AppAttributes: String, CaseIterable {
     case all, softwareDeveloper
 
     var label: String {
@@ -122,7 +150,7 @@ enum AppEntity: String, CaseIterable {
 }
 
 // MARK: 팟캐스트 타입
-enum PodcastEntity: String, CaseIterable {
+enum PodcastAttributes: String, CaseIterable {
     case all, titleTerm, languageTerm, authorTerm, genreIndex, artistTerm, ratingIndex, keywordsTerm, descriptionTerm
 
     var label: String {
