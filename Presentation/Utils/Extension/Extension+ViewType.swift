@@ -16,8 +16,24 @@ extension ViewType {
         case .movie: MovieEntity.allCases.map { ITunesEntity(entity: $0.rawValue, label: $0.label, image: $0.image) }
         case .app: AppEntity.allCases.map { ITunesEntity(entity: $0.rawValue, label: $0.label, image: $0.image) }
         case .podcast: PodcastEntity.allCases.map { ITunesEntity(entity: $0.rawValue, label: $0.label, image: $0.image) }
-        default: []
+        case let .search(media, _):
+            switch media {
+            case .app: AppEntity.allCases.map { ITunesEntity(entity: $0.rawValue, label: $0.label, image: $0.image) }
+            case .movie: MovieEntity.allCases.map { ITunesEntity(entity: $0.rawValue, label: $0.label, image: $0.image) }
+            case .music: MusicEntity.allCases.map { ITunesEntity(entity: $0.rawValue, label: $0.label, image: $0.image) }
+            case .podcast: PodcastEntity.allCases.map { ITunesEntity(entity: $0.rawValue, label: $0.label, image: $0.image) }
+            }
         }
+    }
+    
+    static var allCases: [ViewType] {
+        [
+            .music(entity: "music"),
+            .movie(entity: "movie"),
+            .app(entity: "app"),
+            .podcast(entity: "podcast"),
+            .search(media: .music, entity: "search")
+        ]
     }
 }
 

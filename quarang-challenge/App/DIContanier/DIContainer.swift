@@ -35,17 +35,17 @@ final class DIContainer {
     
     /// 검색 VC 생성
     func makeSearchViewController() -> UIViewController {
-        let type = ViewType.search(media: .app, entity: "")
+        let type = ViewType.search(media: .music, entity: "all")
         let repository = FetchITunesRepository()
         let useCase = FetchITunesUseCase(repository: repository)
         let viewModel = SearchViewModel(fetchITunesUscase: useCase)
-        let vc = SearchViewController(viewModel: viewModel)
+        let vc = SearchViewController(viewModel: viewModel, type: type)
         return makeNavigationController(vc, type: type)
     }
     
     /// 의존성 주입이 완료된 뷰들을 탭바 아이템으로 지정
     var makeTabBarController: UITabBarController {
-        let tabbar = TabBarController()
+        let tabbar = UITabBarController()
         let musicVC = makeITunesViewController(.music(entity: ""))
         let movieVC = makeITunesViewController(.movie(entity: ""))
         let appVC = makeITunesViewController(.app(entity: ""))
