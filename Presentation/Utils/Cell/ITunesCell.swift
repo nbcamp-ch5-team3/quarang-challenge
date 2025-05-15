@@ -28,6 +28,9 @@ class ITunesCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        itunesCellView.getProfileView.image = nil
+        itunesCellView.getImageTitleLabel.text = nil
+        itunesCellView.getImageSubtitleLabel.text = nil
     }
     
     /// 뷰 추가 및 설정

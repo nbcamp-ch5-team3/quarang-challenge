@@ -26,6 +26,7 @@ extension ViewType {
         }
     }
     
+    ///  현제 타입의 전체 케이스 배열
     static var allCases: [ViewType] {
         [
             .music(attributes: "music"),
@@ -34,6 +35,17 @@ extension ViewType {
             .podcast(attributes: "podcast"),
             .search(media: .music, attributes: "search")
         ]
+    }
+    
+    /// 인덱스로 현제 타입 접근
+    static func getViewType(index: Int) -> Self {
+        switch index {
+        case 0: return .music(attributes: "music")
+        case 1: return .movie(attributes: "movie")
+        case 2: return .app(attributes: "software")
+        case 3: return .podcast(attributes: "podcast")
+        default: fatalError("invalid index")
+        }
     }
 }
 

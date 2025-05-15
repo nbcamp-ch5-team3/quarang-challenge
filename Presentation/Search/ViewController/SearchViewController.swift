@@ -12,11 +12,13 @@ internal import RxSwift
 // MARK: 검색 뷰 컨트롤러
 public final class SearchViewController: UIViewController {
     
+    // MARK: - 프로퍼티
     private let type: ViewType
     private let viewModel: SearchViewModel
     private let searchView = SearchView()
     private var disposeBag = DisposeBag()
     
+    // MARK: - 초기설정
     public override func loadView() {
         view = searchView
     }
@@ -25,7 +27,6 @@ public final class SearchViewController: UIViewController {
         self.viewModel = viewModel
         self.type = type
         super.init(nibName: nil, bundle: nil)
-        bindViewModel()
     }
     
     required init?(coder: NSCoder) {
@@ -35,30 +36,48 @@ public final class SearchViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        print(type.attributesEnum)
+        bindViewModel()
+        setRegister()
         searchView.configure(type.attributesEnum)
-        // Do any additional setup after loading the view.
     }
     
     /// 컬렉션 뷰 설정
     private func setRegister() {
-//        searchView.getCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         searchView.getCollectionView.register(ITunesCell.self, forCellWithReuseIdentifier: ITunesCell.identifier)
     }
     
+    // MARK: - 바인딩
+    
     /// 뷰 바인딩
     private func bindViewModel() {
+        // 검색 이벤트 방출
         Observable.combineLatest(
             searchView.getSearchBar.rx.text.orEmpty,
             searchView.getSearchBar.rx.selectedScopeButtonIndex
         )
-        .filter { !$0.0.isEmpty }
         .debounce(.milliseconds(500), scheduler: MainScheduler.asyncInstance)
         .distinctUntilChanged { $0 == $1 }
         .subscribe(with: self) { owner, input in
             let (text, selectedIndex) = input
-            print("최종 검색: \(text), 선택된 인덱스: \(selectedIndex)")
+            
+            guard !text.isEmpty else {
+                owner.viewModel.state.itunesItem.accept([])
+                return
+            }
+            
+            owner.viewModel.state.actionSubject.onNext(.search(text: text, type: ViewType.getViewType(index: selectedIndex)))
         }
         .disposed(by: disposeBag)
+        
+        // 로직 처리 후 데이터 바인딩
+        viewModel.state.itunesItem
+            .observe(on: MainScheduler.asyncInstance)
+            .bind(to: searchView.getCollectionView.rx.items(
+                cellIdentifier: ITunesCell.identifier,
+                cellType: ITunesCell.self)
+            ) { indexPath, item, cell in
+                cell.configure(with: item)
+            }
+            .disposed(by: disposeBag)
     }
 }
