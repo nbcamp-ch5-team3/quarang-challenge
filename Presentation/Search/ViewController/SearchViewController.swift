@@ -15,6 +15,7 @@ public final class SearchViewController: UIViewController {
     // MARK: - 프로퍼티
     private let type: ViewType
     private let viewModel: SearchViewModel
+    private let DIContainer: DetailDIContainerInterface
     private let searchView = SearchView()
     private var disposeBag = DisposeBag()
     
@@ -23,9 +24,10 @@ public final class SearchViewController: UIViewController {
         view = searchView
     }
     
-    public init(viewModel: SearchViewModel, type: ViewType) {
+    public init(viewModel: SearchViewModel, type: ViewType, DIContainer: DetailDIContainerInterface) {
         self.viewModel = viewModel
         self.type = type
+        self.DIContainer = DIContainer
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -77,7 +79,17 @@ public final class SearchViewController: UIViewController {
                 cellType: ITunesCell.self)
             ) { indexPath, item, cell in
                 cell.configure(with: item)
+                cell.getItunesCellView.delegate = self
             }
             .disposed(by: disposeBag)
+    }
+}
+
+// MARK: - 셀 이벤트 처리
+extension SearchViewController: ITunesCellViewDelegate {
+    func didTapDownLoadButton(id: Int) {
+        let vc = DIContainer.makeDetailViewController(id: id, type.type)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }

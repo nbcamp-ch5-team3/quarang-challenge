@@ -179,7 +179,7 @@ public final class ITunesViewController: UIViewController {
     }
 }
 
-
+// MARK: - 셀 이벤트 처리
 extension ITunesViewController: ITunesCellViewDelegate {
     func didTapDownLoadButton(id: Int) {
         let vc = DIContainer.makeDetailViewController(id: id, type.type)
