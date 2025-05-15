@@ -62,7 +62,7 @@ extension MusicResponse {
             imageURL: URL(string: artworkUrl100.replacingOccurrences(of: "100x100", with: "1024x1024"))!,
             detailURL: URL(string: trackViewURL)!,
             genre: primaryGenreName,
-            priceText: "",
+            priceText: "듣기",
             releaseDate: releaseDate.toDateFromISO8601()
         )
     }
@@ -77,7 +77,7 @@ extension MusicResponse {
             previewURL: URL(string: previewURL ?? "")!,
             genre: primaryGenreName,
             releaseDate: releaseDate.toDateFromISO8601(),
-            priceText: "무료",
+            priceText: "듣기",
             contentAdvisory: trackExplicitness,
             languageCodes: nil,
             screenshotURLs: [],

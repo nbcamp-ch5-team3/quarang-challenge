@@ -44,7 +44,6 @@ class ITunesCellView: UIView {
 
     /// 이미지 내부 구입
     private let purchaseLabel = UILabel().then {
-        $0.text = "앱 내 구입"
         $0.font = .systemFont(ofSize: 12, weight: .regular)
         $0.textAlignment = .center
     }
@@ -105,6 +104,7 @@ class ITunesCellView: UIView {
         profileView.load(url: item.imageURL)
         imageTitleLabel.text = item.title
         imageSubtitleLabel.text = item.subtitle + " · " + item.releaseDate.toString(format: "yyyy")
+        purchaseLabel.text = item.priceText
     }
     
     /// 셀 내부 텍스트 색상 업데이트

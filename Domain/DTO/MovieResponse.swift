@@ -46,7 +46,7 @@ extension MovieResponse {
             imageURL: URL(string: artworkUrl100.replacingOccurrences(of: "100x100", with: "1024x1024"))!,
             detailURL: URL(string: trackViewURL ?? "https://www.google.com/search?q=\(trackName)")!,
             genre: primaryGenreName,
-            priceText: "₩\(trackPrice ?? 0)",
+            priceText: trackPrice == 0 ? "무료" : "₩\(trackPrice ?? 0)",
             releaseDate: releaseDate.toDateFromISO8601()
         )
     }
@@ -61,7 +61,7 @@ extension MovieResponse {
             previewURL: URL(string: previewURL ?? "https://www.google.com/search?q=\(trackName)"),
             genre: primaryGenreName,
             releaseDate: releaseDate.toDateFromISO8601(),
-            priceText: "₩\(trackPrice ?? 0)",
+            priceText: trackPrice == 0 ? "무료" : "₩\(trackPrice ?? 0)",
             contentAdvisory: contentAdvisoryRating,
             languageCodes: nil,
             screenshotURLs: [],
