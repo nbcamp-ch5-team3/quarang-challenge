@@ -48,7 +48,7 @@ final class SearchView: UIView {
     }
     
     /// 세그먼트 컨트롤 설정
-    func configure(_ itunes: [ITunesEntity]) {
+    func configure(_ itunes: [ITunesAttributes]) {
         searchBar.scopeButtonTitles = ViewType.allCases.filter { $0.tag < 5 }.map { $0.type.text }
     }
     

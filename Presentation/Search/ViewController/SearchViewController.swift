@@ -35,8 +35,8 @@ public final class SearchViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        print(type.entityEnum)
-        searchView.configure(type.entityEnum)
+        print(type.attributesEnum)
+        searchView.configure(type.attributesEnum)
         // Do any additional setup after loading the view.
     }
     

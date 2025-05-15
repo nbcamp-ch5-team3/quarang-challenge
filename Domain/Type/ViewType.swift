@@ -9,11 +9,11 @@ import Foundation
 
 // MARK: - 뷰 타입
 public enum ViewType {
-    case music(entity: String)
-    case movie(entity: String)
-    case app(entity: String)
-    case podcast(entity: String)
-    case search(media: MediaType, entity: String)
+    case music(attributes: String)
+    case movie(attributes: String)
+    case app(attributes: String)
+    case podcast(attributes: String)
+    case search(media: MediaType, attributes: String)
 
     public var text: String {
         switch self {

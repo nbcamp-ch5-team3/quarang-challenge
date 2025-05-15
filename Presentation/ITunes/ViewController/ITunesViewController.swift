@@ -14,7 +14,7 @@ import RxDataSources
 typealias ITunesSection = SectionModel<SeasonType, ITunesSectionItem>
 
 enum ITunesSectionItem {
-    case category(entity: ITunesEntity)
+    case category(attributes: ITunesAttributes)
     case spring(item: ITunes)
     case summer(item: ITunes)
     case autumn(item: ITunes)
@@ -30,8 +30,8 @@ public final class ITunesViewController: UIViewController {
     private var disposeBag = DisposeBag()
     
     private let type: ViewType
-    private let itemCatergory: [ITunesEntity]
-    private lazy var entity: ITunesEntity? = itemCatergory.first
+    private let itemCatergory: [ITunesAttributes]
+    private lazy var attributes: ITunesAttributes? = itemCatergory.first
     
     /// 데아터 소스 - 셀 타입 및 헤더 설정
     private var dataSource: RxCollectionViewSectionedReloadDataSource<ITunesSection> {
@@ -39,15 +39,15 @@ public final class ITunesViewController: UIViewController {
             configureCell: { _, collectionView, indexPath, item in
                 // 셀 반환
                 switch item {
-                case let .category(entity):
+                case let .category(attributes):
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as! CategoryCell
                     
-                    cell.configure(entity: entity, selected: self.entity == entity)
+                    cell.configure(attributes: attributes, selected: self.attributes == attributes)
                     
 //                    cell.tapSubject
-//                        .subscribe(with: self, onNext: { owner, tappedEntity in
-//                            self.entity = entity
-//                            cell.configure(entity: entity, selected: owner.entity == entity)
+//                        .subscribe(with: self, onNext: { owner, tappedAttributes in
+//                            self.attributes = attributes
+//                            cell.configure(attributes: attributes, selected: owner.attributes == attributes)
 //                        })
 //                        .disposed(by: cell.disposeBag)
                     return cell
@@ -86,7 +86,7 @@ public final class ITunesViewController: UIViewController {
         self.viewModel = viewModel
         self.DIContainer = DIContainer
         self.type = type
-        self.itemCatergory = type.entityEnum
+        self.itemCatergory = type.attributesEnum
         super.init(nibName: nil, bundle: nil)
         configureRegister()
         bindViewModel()
@@ -100,8 +100,8 @@ public final class ITunesViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        guard let entity else { return }
-        viewModel.state.actionSubject.onNext(.viewDidLoad(type: setItunesType(entity)))
+        guard let attributes else { return }
+        viewModel.state.actionSubject.onNext(.viewDidLoad(type: setItunesType(attributes)))
     }
     
     /// 컬렉션 뷰 셀 및 헤더 설정
@@ -120,13 +120,13 @@ public final class ITunesViewController: UIViewController {
             .withUnretained(self)
             .bind { owner, item in
                 switch item {
-                case .category(let entity):
-                    guard let oldEntity = self.entity,
-                          let oldIndex = owner.itemCatergory.firstIndex(of: oldEntity),
-                          let newIndex = owner.itemCatergory.firstIndex(of: entity)
+                case .category(let attributes):
+                    guard let oldAttributes = self.attributes,
+                          let oldIndex = owner.itemCatergory.firstIndex(of: oldAttributes),
+                          let newIndex = owner.itemCatergory.firstIndex(of: attributes)
                     else { return }
-                    owner.entity = entity
-                    owner.viewModel.state.actionSubject.onNext(.viewDidLoad(type: owner.setItunesType(entity)))
+                    owner.attributes = attributes
+                    owner.viewModel.state.actionSubject.onNext(.viewDidLoad(type: owner.setItunesType(attributes)))
 
                     let oldIndexPath = IndexPath(item: oldIndex, section: 0)
                     let newIndexPath = IndexPath(item: newIndex, section: 0)
@@ -147,7 +147,7 @@ public final class ITunesViewController: UIViewController {
             .withUnretained(self)
             .map { owner, items in
                 let (spring, summer, autumn, winter) = items
-                let category = owner.itemCatergory.map { ITunesSectionItem.category(entity: $0) }
+                let category = owner.itemCatergory.map { ITunesSectionItem.category(attributes: $0) }
                 let springs = spring.map { ITunesSectionItem.spring(item: $0) }
                 let summers = summer.map { ITunesSectionItem.summer(item: $0) }
                 let autumns = autumn.map { ITunesSectionItem.autumn(item: $0) }
@@ -164,12 +164,12 @@ public final class ITunesViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func setItunesType(_ entity: ITunesEntity) -> ViewType {
+    private func setItunesType(_ attributes: ITunesAttributes) -> ViewType {
         switch type {
-        case .music: return ViewType.music(entity: entity.entity)
-        case .movie: return ViewType.movie(entity: entity.entity)
-        case .app: return ViewType.app(entity: entity.entity)
-        case .podcast: return ViewType.podcast(entity: entity.entity)
+        case .music: return ViewType.music(attributes: attributes.attributes)
+        case .movie: return ViewType.movie(attributes: attributes.attributes)
+        case .app: return ViewType.app(attributes: attributes.attributes)
+        case .podcast: return ViewType.podcast(attributes: attributes.attributes)
         default : return type
         }
     }
