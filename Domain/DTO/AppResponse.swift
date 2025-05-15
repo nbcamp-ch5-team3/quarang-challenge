@@ -41,8 +41,8 @@ public struct AppResponse: Codable {
     let isVppDeviceBasedLicensingEnabled: Bool
     let sellerName: String
     let currentVersionReleaseDate: String
-    let releaseNotes, version, wrapperType, currency: String
-    let description: String
+    let releaseNotes, version, wrapperType, currency: String?
+    let description: String?
     let trackID: Int
     let trackName: String
     let userRatingCount: Int
