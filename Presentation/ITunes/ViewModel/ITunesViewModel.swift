@@ -58,7 +58,7 @@ public final class ITunesViewModel: ViewModelType {
         let relays = [state.springItems, state.summerItems, state.autumnItems, state.winterItems]
         
         let requests = terms.map {
-            fetchITunesUscase.excute(term: $0, type)
+            fetchITunesUscase.execute(term: $0, type)
                 .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
                 .asObservable()
         }

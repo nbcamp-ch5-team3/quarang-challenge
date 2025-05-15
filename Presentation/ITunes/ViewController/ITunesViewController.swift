@@ -117,6 +117,7 @@ public final class ITunesViewController: UIViewController {
         
         iTunesView.getCollectionView.rx
             .modelSelected(ITunesSectionItem.self)
+            .observe(on: MainScheduler.asyncInstance)
             .withUnretained(self)
             .bind { owner, item in
                 switch item {
@@ -144,6 +145,7 @@ public final class ITunesViewController: UIViewController {
                 viewModel.state.autumnItems,
                 viewModel.state.winterItems
             )
+            .observe(on: MainScheduler.asyncInstance)
             .withUnretained(self)
             .map { owner, items in
                 let (spring, summer, autumn, winter) = items

@@ -17,7 +17,7 @@ public final class FetchLookUpUseCase: FetchLookUpUseCaseInterface {
         self.repository = repository
     }
     
-    public func excute(id: Int,_ type: MediaType) -> Single<[ITunesDetail]> {
+    public func execute(id: Int,_ type: MediaType) -> Single<[ITunesDetail]> {
         repository.fetchLookUP(id: id, type)
     }
 }
