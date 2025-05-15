@@ -13,6 +13,10 @@ final public class DetailViewViewController: UIViewController {
     private let detailView = DetailView()
     private let viewModel: DetailViewViewModel
     
+    public override func loadView() {
+        view = detailView
+    }
+    
     public init(viewModel: DetailViewViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -24,7 +28,6 @@ final public class DetailViewViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 

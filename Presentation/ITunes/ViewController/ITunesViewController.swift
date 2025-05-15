@@ -54,10 +54,12 @@ public final class ITunesViewController: UIViewController {
                 case let .spring(itunes):
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ITunesThumbnailCell.identifier, for: indexPath) as! ITunesThumbnailCell
                     cell.configure(with: itunes)
+                    cell.getItunesCellView.delegate = self
                     return cell
                 case let .summer(itunes), let .autumn(itunes), let .winter(itunes):
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ITunesCell.identifier, for: indexPath) as! ITunesCell
                     cell.configure(with: itunes)
+                    cell.getItunesCellView.delegate = self
                     return cell
                 }
             }) { dataSource, collectionView, _, indexPath in
@@ -174,5 +176,14 @@ public final class ITunesViewController: UIViewController {
         case .podcast: return ViewType.podcast(attributes: attributes.attributes)
         default : return type
         }
+    }
+}
+
+
+extension ITunesViewController: ITunesCellViewDelegate {
+    func didTapDownLoadButton(id: Int) {
+        let vc = DIContainer.makeDetailViewController(id: id, type.type)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }

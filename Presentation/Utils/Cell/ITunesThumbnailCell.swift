@@ -32,6 +32,7 @@ final class ITunesThumbnailCell: UICollectionViewCell {
         $0.contentMode = .scaleAspectFill
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
+        $0.isUserInteractionEnabled = true
     }
 
     /// 타이틀 - 작품명
@@ -149,6 +150,11 @@ final class ITunesThumbnailCell: UICollectionViewCell {
     /// 접근
     var getImageView: UIImageView {
         imageView
+    }
+    
+    /// 접근
+    var getItunesCellView: ITunesCellView {
+        itunesCellView
     }
 }
 

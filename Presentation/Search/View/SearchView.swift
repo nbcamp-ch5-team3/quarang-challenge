@@ -50,6 +50,7 @@ final class SearchView: UIView {
     /// 검색바
     private let searchBar = UISearchBar().then {
         $0.showsScopeBar = true
+        $0.placeholder = "검색어를 입력해 주세요."
     }
     
     override init(frame: CGRect) {
