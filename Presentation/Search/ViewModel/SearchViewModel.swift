@@ -11,7 +11,7 @@ internal import RxSwift
 import RxRelay
 
 // MARK: - 검색 관련 뷰모델
-public final class SearchViewModel: ViewModelType {
+public final class SearchViewModel: BaseViewModel, ViewModelType {
     
     enum Action {
         case search(text:String, type: ViewType)
@@ -33,6 +33,7 @@ public final class SearchViewModel: ViewModelType {
     
     public init (fetchITunesUscase: FetchITunesUseCase) {
         self.fetchITunesUscase = fetchITunesUscase
+        super.init()
         bind()
     }
     
@@ -57,22 +58,5 @@ public final class SearchViewModel: ViewModelType {
                 owner.errorHandler(error)
             })
             .disposed(by: disposeBag)
-    }
-    
-    /// 에러 핸들러
-    private func errorHandler(_ error: Error) {
-        if let networkError = error as? NetWorkError {
-            switch networkError {
-            case .decodingError:
-                print("❗️디코딩에 실패했습니다. 형식을 확인하세요.")
-            case .statusCodeError(let code):
-                print("❗️서버 상태 코드 오류: \(code)")
-            case .dataParsingError:
-                print("❗️데이터가 존재하지 않습니다.")
-            default: break
-            }
-        } else {
-            print("❗️알 수 없는 오류: \(error.localizedDescription)")
-        }
     }
 }

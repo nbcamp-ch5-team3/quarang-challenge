@@ -11,7 +11,7 @@ internal import RxSwift
 import RxRelay
 
 // MARK: - 아이튠즈 뷰 모델
-public final class ITunesViewModel: ViewModelType {
+public final class ITunesViewModel: BaseViewModel, ViewModelType {
     
     enum Action {
         case viewDidLoad(type: ViewType)
@@ -37,8 +37,8 @@ public final class ITunesViewModel: ViewModelType {
     }
     
     public init(fetchITunesUscase: FetchITunesUseCase) {
-        
         self.fetchITunesUscase = fetchITunesUscase
+        super.init()
         bind()
     }
     
@@ -70,25 +70,9 @@ public final class ITunesViewModel: ViewModelType {
                     relay.accept(items)
                 }
                 print("🎉 모든 시즌 데이터 수신 완료")
-            }, onError: { [weak self] error in
-                self?.errorHandler(error)
+            }, onError: { error in
+                super.errorHandler(error)
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func errorHandler(_ error: Error) {
-        if let networkError = error as? NetWorkError {
-            switch networkError {
-            case .decodingError:
-                print("❗️디코딩에 실패했습니다. 형식을 확인하세요.")
-            case .statusCodeError(let code):
-                print("❗️서버 상태 코드 오류: \(code)")
-            case .dataParsingError:
-                print("❗️데이터가 존재하지 않습니다.")
-            default: break
-            }
-        } else {
-            print("❗️알 수 없는 오류: \(error.localizedDescription)")
-        }
     }
 }
