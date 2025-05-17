@@ -62,7 +62,7 @@ extension MusicResponse {
             imageURL: URL(string: artworkUrl100.replacingOccurrences(of: "100x100", with: "1024x1024"))!,
             detailURL: URL(string: trackViewURL)!,
             genre: primaryGenreName,
-            priceText: "듣기",
+            priceText: "무료 스트리밍",
             releaseDate: releaseDate.toDateFromISO8601()
         )
     }
@@ -72,20 +72,21 @@ extension MusicResponse {
             id: trackID,
             title: trackName,
             subtitle: artistName,
-            description: nil,
+            description: collectionName,
             artworkURL: URL(string: artworkUrl100.replacingOccurrences(of: "100x100", with: "1024x1024"))!,
-            previewURL: URL(string: previewURL ?? "")!,
+            previewURL: URL(string: previewURL ?? "https://www.google.com/search?q=\(trackName)")!,
             genre: primaryGenreName,
             releaseDate: releaseDate.toDateFromISO8601(),
-            priceText: "듣기",
-            contentAdvisory: trackExplicitness,
+            priceText: "무료 스트리밍",
+            contentAdvisory: contentAdvisoryRating == "explicit" ? "19.circle" : "c.circle",
             languageCodes: nil,
             screenshotURLs: [],
             sellerName: nil,
             isStreamable: isStreamable,
             trackTimeMillis: trackTimeMillis,
             feedURL: nil,
-            detailURL: URL(string: trackViewURL)!,
+            detailURL: URL(string: trackViewURL),
+            time: trackTimeMillis,
             mediaType: .music
         )
     }

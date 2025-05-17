@@ -70,14 +70,15 @@ extension PodcastResponse {
             genre: primaryGenreName,
             releaseDate: releaseDate?.toDateFromISO8601() ?? Date(),
             priceText: "무료",
-            contentAdvisory: trackExplicitness,
+            contentAdvisory: contentAdvisoryRating == "explicit" ? "19.circle" : "c.circle",
             languageCodes: nil,
             screenshotURLs: [],
             sellerName: artistName,
             isStreamable: false,
             trackTimeMillis: trackTimeMillis,
             feedURL: URL(string: feedURL ?? ""),
-            detailURL: URL(string: trackViewURL ?? "https://www.google.com/search?q=\(trackName)")!,
+            detailURL: URL(string: trackViewURL ?? "https://www.google.com/search?q=\(trackName)"),
+            time: trackTimeMillis,
             mediaType: .podcast
         )
     }
