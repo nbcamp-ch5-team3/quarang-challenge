@@ -11,6 +11,7 @@ import Foundation
 public struct AppResponse: Codable {
     let isGameCenterEnabled: Bool
     let artistViewURL: String
+    let artworkUrl30: String?
     let artworkUrl60: String
     let artworkUrl100: String?
     let screenshotUrls, ipadScreenshotUrls, appletvScreenshotUrls: [String]
@@ -50,7 +51,7 @@ public struct AppResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case isGameCenterEnabled
         case artistViewURL = "artistViewUrl"
-        case artworkUrl60, artworkUrl100, screenshotUrls, ipadScreenshotUrls, appletvScreenshotUrls, artworkUrl512, features, supportedDevices, advisories, kind, averageUserRatingForCurrentVersion
+        case artworkUrl30, artworkUrl60, artworkUrl100, screenshotUrls, ipadScreenshotUrls, appletvScreenshotUrls, artworkUrl512, features, supportedDevices, advisories, kind, averageUserRatingForCurrentVersion
         case minimumOSVersion = "minimumOsVersion"
         case userRatingCountForCurrentVersion, trackContentRating, trackCensoredName
         case trackViewURL = "trackViewUrl"
@@ -95,14 +96,15 @@ extension AppResponse {
             genre: primaryGenreName,
             releaseDate: releaseDate?.toDateFromISO8601() ?? Date(),
             priceText: formattedPrice,
-            contentAdvisory: contentAdvisoryRating,
+            contentAdvisory: contentAdvisoryRating == "17+" ? "19.circle" : "c.circle",
             languageCodes: languageCodesISO2A,
             screenshotURLs: screenshotUrls.compactMap { URL(string: $0) },
             sellerName: sellerName,
             isStreamable: nil,
             trackTimeMillis: nil,
             feedURL: nil,
-            detailURL: URL(string: trackViewURL ?? "https://www.google.com/search?q=\(trackName)")!,
+            detailURL: URL(string: trackViewURL ?? "https://www.google.com/search?q=\(trackName)"),
+            time: nil,
             mediaType: .app
         )
     }

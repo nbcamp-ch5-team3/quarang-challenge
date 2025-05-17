@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - 날짜 -> String
 extension Date {
     func toString(format: String = "yyyy-MM-dd") -> String {
         let formatter = DateFormatter()

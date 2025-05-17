@@ -39,7 +39,7 @@ final class DIContainer {
         let repository = FetchITunesRepository()
         let useCase = FetchITunesUseCase(repository: repository)
         let viewModel = SearchViewModel(fetchITunesUscase: useCase)
-        let vc = SearchViewController(viewModel: viewModel, type: type)
+        let vc = SearchViewController(viewModel: viewModel, type: type, DIContainer: self)
         return makeNavigationController(vc, type: type)
     }
     

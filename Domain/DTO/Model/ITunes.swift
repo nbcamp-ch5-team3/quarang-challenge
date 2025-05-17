@@ -13,7 +13,7 @@ public struct ITunes {
     public let title: String        // trackName
     public let subtitle: String     // artistName
     public let imageURL: URL
-    public let detailURL: URL
+    public let detailURL: URL?
     public let genre: String
     public let priceText: String    // "무료" or "₩1,100"
     public let releaseDate: Date
@@ -23,7 +23,7 @@ public struct ITunes {
         title: String,
         subtitle: String,
         imageURL: URL,
-        detailURL: URL,
+        detailURL: URL?,
         genre: String,
         priceText: String,
         releaseDate: Date

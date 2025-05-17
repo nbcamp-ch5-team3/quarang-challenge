@@ -48,4 +48,9 @@ class ITunesCell: UICollectionViewCell {
     func configure(with item: ITunes) {
         itunesCellView.configure(with: item)
     }
+    
+    /// 접근
+    var getItunesCellView: ITunesCellView {
+        itunesCellView
+    }
 }
