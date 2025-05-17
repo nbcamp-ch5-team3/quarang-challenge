@@ -18,6 +18,8 @@ public final class DetailViewViewModel: BaseViewModel, ViewModelType {
     
     struct State {
         private(set) var actionSubject = PublishSubject<Action>()
+        
+        private(set) var itunesDetail = BehaviorSubject<ITunesDetail?>(value: nil)
     }
     
     var state = State()
@@ -35,6 +37,7 @@ public final class DetailViewViewModel: BaseViewModel, ViewModelType {
         self.type = type
         self.fetchLookUpuseCase = fetchLookUpuseCase
         super.init()
+        bind()
     }
     
     /// 바인딩
@@ -51,8 +54,8 @@ public final class DetailViewViewModel: BaseViewModel, ViewModelType {
     /// 데이터 요청
     private func fetchData() {
         fetchLookUpuseCase.execute(id: id, type)
-            .subscribe(with: self, onSuccess: { owner, details in
-                
+            .subscribe(with: self, onSuccess: { owner, detail in
+                owner.state.itunesDetail.onNext(detail.first)
             }) { owner, error in
                 owner.errorHandler(error)
             }
