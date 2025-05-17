@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    
+    /// 문자열 -> 날짜 (yyyy-MM-dd)
     func toDateFromISO8601() -> Date {
         let formatter = ISO8601DateFormatter()
         return formatter.date(from: self) ?? Date()

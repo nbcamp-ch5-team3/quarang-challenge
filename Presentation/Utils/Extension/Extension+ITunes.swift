@@ -8,6 +8,7 @@
 import Foundation
 import Domain
 
+// MARK: - 아이튠즈 디테일 -> 아이튠즈 
 extension ITunesDetail {
     
     var toITunes: ITunes {

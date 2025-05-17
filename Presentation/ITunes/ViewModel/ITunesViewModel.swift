@@ -42,6 +42,7 @@ public final class ITunesViewModel: BaseViewModel, ViewModelType {
         bind()
     }
     
+    /// 바인딩
     private func bind() {
         state.actionSubject
             .subscribe(with: self) { owner, action in
@@ -53,16 +54,19 @@ public final class ITunesViewModel: BaseViewModel, ViewModelType {
             .disposed(by: disposeBag)
     }
     
+    /// 데이터 요청
     private func request(_ type: ViewType) {
         let terms = ["봄", "여름", "가을", "겨울"]
         let relays = [state.springItems, state.summerItems, state.autumnItems, state.winterItems]
         
+        // 한번에 4개의 데이터를 요청해야함으로 데이터 요청은 각각 병렬적으로 백그라운드에서 처리
         let requests = terms.map {
             fetchITunesUscase.execute(term: $0, type)
                 .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
                 .asObservable()
         }
-
+        
+        // 그렇게 만들어진 observable은 UI에 업데이트 해야하기 때문에 메인 스레드에서 데이터를 바인딩
         Observable.zip(requests)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { results in

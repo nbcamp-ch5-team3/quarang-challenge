@@ -13,7 +13,7 @@ internal import RxSwift
 public final class SearchViewController: UIViewController {
     
     // MARK: - 프로퍼티
-    private let type: ViewType
+    private var type: ViewType
     private let viewModel: SearchViewModel
     private let DIContainer: DetailDIContainerInterface
     private let searchView = SearchView()
@@ -67,6 +67,7 @@ public final class SearchViewController: UIViewController {
                 return
             }
             
+            owner.type = ViewType.getViewType(index: selectedIndex)
             owner.viewModel.state.actionSubject.onNext(.search(text: text, type: ViewType.getViewType(index: selectedIndex)))
         }
         .disposed(by: disposeBag)
