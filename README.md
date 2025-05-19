@@ -22,7 +22,7 @@
 
 | 설명 | 뷰 |
 |:--:|:--:|
-|메인화면|<img src ="https://github.com/user-attachments/assets/36759d93-52d6-4c25-8172-e0c451ebff82" width = 250>|
+|메인화면|<img src ="https://github.com/user-attachments/assets/572e5599-e86d-45c7-a924-b5c90a709bee" width = 250>|
 |탭바|<img src = "https://github.com/user-attachments/assets/36759d93-52d6-4c25-8172-e0c451ebff82" width = 250>|
 |검색|<img src = "https://github.com/user-attachments/assets/f3c6b688-8704-48c5-aaca-7db113d86832" width = 250>|
 |앱 상세페이지|<img src = "https://github.com/user-attachments/assets/c8a83d5f-4673-493e-9c7e-3511fa37f49c" width = 250>|
